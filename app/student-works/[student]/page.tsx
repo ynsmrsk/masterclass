@@ -1,5 +1,4 @@
 'use client'
-// @ts-nocheck
 import { useEffect } from "react"
 import { getStudentWork } from "@/sanity/sanity-utils"
 import Image from "next/image"
@@ -7,28 +6,35 @@ import { useRouter } from "next/navigation"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
+type Props = {
+	params: { student: string }
+}
+
 function GoBack() {
 	const router = useRouter()
 	const onClick = () => router.back()
 	return <button className="block" onClick={onClick}>Go Back</button>
 }
 
-async function StudentWork({ params }: { params: { student: string } }) {
+async function RenderStudentWork({ params }: Props) {
 	const slug = params.student
 	const work = await getStudentWork(slug)
+	console.log('zort')
 
 	return (
 		<div>
-			<GoBack />
-			<a href={`https://www.instagram.com/${work.instagram}`} target="_blank" rel="noreferrer">
-				{work.instagram}
-			</a>
-			<h1>{work.studentName}</h1>
-			<div className="cards h-screen grid place-items-center bg-blue-500">
+			<div className="fixed top-10 left-10 z-10">
+				<GoBack />
+				<a href={`https://www.instagram.com/${work.instagram}`} target="_blank" rel="noreferrer">
+					{work.instagram}
+				</a>
+				<h1>{work.studentName}</h1>
+			</div>
+			<div id="container" className="w-screen h-screen absolute top-0 left-0 overflow-hidden">
 				{work.images.map(image =>
 					<Image
 						key={image.url}
-						className="card col-span-full row-span-full h-[300px] w-[300px] border-2 border-red-500"
+						className="image absolute left-1/2 -translate-x-1/2 will-change-transform h-screen w-auto object-cover"
 						src={image.url}
 						alt=""
 						width={1920}
@@ -40,42 +46,27 @@ async function StudentWork({ params }: { params: { student: string } }) {
 	)
 }
 
-export default function StudentWorkInteractive({ params }: { params: { student: string } }) {
-	gsap.registerPlugin(ScrollTrigger)
+export default function StudentWork({ params }: Props) {
+	gsap.registerPlugin(ScrollTrigger);
+
 	useEffect(() => {
-		const stagger = 0.5;
-		gsap.set(".card", {
-			y: (index) => 10 * index,
-			zIndex: (index, target, targets) => targets.length - index,
-			scale: (index) => 1 - index * 0.05
-		});
-		const tl = gsap.timeline({
-			defaults: { ease: "none" },
+		gsap.to(".image:not(:last-child)", {
+			yPercent: -100,
+			ease: "none",
+			stagger: 0.5,
 			scrollTrigger: {
-				trigger: ".cards",
+				trigger: "#container",
 				start: "top top",
-				end: "bottom top",
-				scrub: true,
+				end: "+=300%",
+				scrub: 1.5,
 				pin: true,
-				markers: true
 			}
-		});
-		tl.to(".card", {
-			scale: 1,
-			stagger: stagger
-		});
-		tl.to(
-			".card",
-			{
-				yPercent: -75,
-				opacity: 0,
-				stagger: stagger
-			},
-			stagger
-		);
+		})
+
+		gsap.set(".image", { zIndex: (i, _target, targets) => targets.length - i })
 	}, [])
 
 	return (
-		<StudentWork params={params} />
+		<RenderStudentWork params={params} />
 	)
 }

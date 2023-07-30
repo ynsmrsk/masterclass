@@ -21,7 +21,7 @@ const MouseMoveScroll = forwardRef(({ children }, holder) => {
 				x = e.clientX || (e.changedTouches && e.changedTouches[0].clientX) || 0
 				y = e.clientY || (e.changedTouches && e.changedTouches[0].clientY) || 0
 				gsap.to(holder.current, {
-					duration: 3,
+					duration: 4,
 					overwrite: true,
 					ease: "Power4.easeOut",
 					x: mapPositionX(x),

@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	body {
+		overflow-x: hidden;
+	}
+
+	html, 
+	body { 
+		@apply 
+		overscroll-none 
+		bg-light 
+		scroll-smooth 
+		select-none 
+	}
+
+	#trailer { @apply hidden }
+
+	body:hover #trailer { 
+		@apply opacity-100 
+	}
+
+	@media (pointer:fine) { 
+		#trailer { @apply grid } 
+	}
+}
+
+@layer components {}
+@layer utilities {}
+
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}

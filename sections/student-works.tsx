@@ -2,51 +2,48 @@
 'use client'
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { MouseMoveScroll, Swing } from "@/animations"
-import { useWindowWidth } from "@/hooks"
+import MouseMoveScroll from "@/animations/mouse-move-scroll"
+import Swing from '@/animations/swing'
 import Link from "next/link"
 import { getStudentWorks } from "@/sanity/sanity-utils"
 
 export default function StudentWorks() {
-	const windowWidth = useWindowWidth()
-	const [thumbnails, setThumbnails] = useState([])
+	const [items, setItems] = useState([])
 	const holder = useRef(null)
-	const thumbnailList = []
-	const getRandomBetween = (min, max) => Math.random() * (max - min) + min
+	const itemList = []
+	const randBetween = (min, max) => Math.random() * (max - min) + min
 
-	let slug, by, ig, img, aspectRatio, randomViewportWidth, viewportHeight, pixelWidth, pixelHeight,
-		randomX, randomY, minimumDistanceX, minimumDistanceY, distanceX, distanceY, protect = 0
+	let slug, by, ig, img, aspectRatio, randVW, randVH, pxW, pxH,
+		randX, randY, minDistX, minDistY, distX, distY, protect = 0
 
-	const generateRandomSizeAndPosition = (aspectRatio) => {
-		if (aspectRatio <= 1) randomViewportWidth = windowWidth > 768 ? getRandomBetween(15, 30) : getRandomBetween(40, 60)
-		else randomViewportWidth = windowWidth > 768 ? getRandomBetween(30, 60) : getRandomBetween(60, 80)
-
-		viewportHeight = randomViewportWidth / aspectRatio
-		pixelWidth = (document.documentElement.clientWidth * randomViewportWidth) / 100
-		pixelHeight = (document.documentElement.clientWidth * viewportHeight) / 100
-		randomX = getRandomBetween(pixelWidth / 1.5, holder.current.offsetWidth - pixelWidth * 1.5)
-		randomY = getRandomBetween(pixelHeight / 1.25, holder.current.offsetHeight - pixelHeight * 2)
+	function genRandSizePos(aspectRatio) {
+		aspectRatio <= 1 ? randVW = randBetween(15, 30) : randVW = randBetween(30, 60)
+		randVH = randVW / aspectRatio
+		pxW = (document.documentElement.clientWidth * randVW) / 100
+		pxH = (document.documentElement.clientWidth * randVH) / 100
+		randX = randBetween(pxW / 1.5, holder.current.offsetWidth - pxW * 1.5)
+		randY = randBetween(pxH / 1.25, holder.current.offsetHeight - pxH * 2)
 	}
 
-	const checkIfOverlap = () => {
-		for (let i = 0; i < thumbnailList.length; i++) {
-			const other = thumbnailList[i]
-			if (other.pixelWidth > pixelWidth) {
-				minimumDistanceX = other.pixelWidth
-				minimumDistanceY = other.pixelHeight
+	function isOverlap() {
+		for (let i = 0; i < itemList.length; i++) {
+			const other = itemList[i]
+			if (other.pxW > pxW) {
+				minDistX = other.pxW
+				minDistY = other.pxH
 			} else {
-				minimumDistanceX = pixelWidth
-				minimumDistanceY = pixelHeight
+				minDistX = pxW
+				minDistY = pxH
 			}
-			distanceX = Math.abs(other.randomX - randomX)
-			distanceY = Math.abs(other.randomY - randomY)
-			if (distanceX <= minimumDistanceX && distanceY <= minimumDistanceY) return false
+			distX = Math.abs(other.randX - randX)
+			distY = Math.abs(other.randY - randY)
+			if (distX <= minDistX && distY <= minDistY) return false
 		}
-		thumbnailList.push({ slug, by, ig, img, randomViewportWidth, viewportHeight, randomX, randomY })
+		itemList.push({ slug, by, ig, img, randVW, randVH, randX, randY })
 		return true
 	}
 
-	const generateThumbnail = (work) => {
+	function genItem(work) {
 		slug = work.slug
 		by = work.student
 		ig = work.instagram
@@ -54,46 +51,47 @@ export default function StudentWorks() {
 		aspectRatio = work.images[0].aspectRatio
 		do {
 			protect++
-			generateRandomSizeAndPosition(aspectRatio)
+			genRandSizePos(aspectRatio)
 			if (protect > 10000) return
-		} while (!checkIfOverlap())
+		} while (!isOverlap())
 	}
 
 
 	useEffect(() => {
 		async function getData() {
 			const studentWorks = await getStudentWorks()
-			studentWorks.forEach(work => generateThumbnail(work))
-			setThumbnails(thumbnailList)
-			console.log("rendered item count:", thumbnailList.length)
+			studentWorks.forEach(work => genItem(work))
+			setItems(itemList)
+			console.log("rendered item count:", itemList.length)
 		}
 		getData()
 	}, [])
 
 	return (
 		<MouseMoveScroll ref={holder}>
-			{thumbnails.length &&
+			{items.length &&
 				<Swing>
-					{thumbnails.map((item, i) =>
+					{items.map((item, i) =>
 						<Link
-							id="zort"
 							key={i}
 							href={`/student-works/${item.slug}`}
-							data-size={item.randomViewportWidth}
+							data-size={item.randVW}
 							className="block relative mx-auto md:absolute hover:z-10 group"
 							style={{
-								width: `${item.randomViewportWidth}vw`,
-								height: `${item.viewportHeight}vw`,
-								left: `${item.randomX}px`,
-								top: `${item.randomY}px`,
+								width: `${item.randVW}vw`,
+								height: `${item.randVH}vw`,
+								left: `${item.randX}px`,
+								top: `${item.randY}px`,
 							}}
 						>
-							<span className="text-xs md:text-sm mt-[1px] workBy opacity-0 group-hover:opacity-100 transition-opacity absolute top-auto md:top-unset md:bottom-0 left-0 z-20 bg-white rounded-[3px] py-[3px] px-2">{item.by}</span>
+							<span className="text-white text-center text-xl lg:text-2xl font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
+								{item.by}
+							</span>
 							<Image
-								className="rounded-[3px] w-full object-cover"
+								className="rounded-[3px] w-full object-cover group-hover:brightness-75 transition"
 								src={item.img}
-								width={windowWidth > 768 ? 500 : 300}
-								height={windowWidth > 768 ? 500 : 300}
+								width={500}
+								height={500}
 								alt=""
 							/>
 						</Link>

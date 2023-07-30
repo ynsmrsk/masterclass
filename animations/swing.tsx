@@ -1,6 +1,9 @@
 // @ts-nocheck
 import { useEffect, useRef } from "react"
-import { gsap } from "@/utils/gsap"
+import { gsap } from "gsap"
+import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin"
+
+gsap.registerPlugin(MotionPathPlugin)
 
 export default function Swing({ children }) {
 	const wrapperRef = useRef(null)

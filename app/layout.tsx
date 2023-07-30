@@ -1,21 +1,33 @@
+'use client'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
+import ScrollProvider from '@/utils/scroll-provider'
 
-const inter = Inter({ subsets: ['latin'] })
+const fontDisplay = localFont({
+	src: '../public/fonts/ClashDisplay-Variable.ttf',
+	variable: '--font-display'
+})
 
+const fontBody = localFont({
+	src: '../public/fonts/ClashGrotesk-Variable.ttf',
+	variable: '--font-body'
+})
+
+/* FIX: THIS WILL NOT WORK because of 'use client'
 export const metadata = {
 	title: 'Immersive Images',
 	description: "Interior design alanında uzman eğitmen Selman Can'ın çevrimiçi eğitimi",
 }
+*/
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="tr">
-			<body className={inter.className}>{children}</body>
-		</html >
+		<ScrollProvider>
+			<html lang="tr">
+				<body className={`${fontBody.variable} ${fontDisplay.variable} font-body`}>
+					{children}
+				</body>
+			</html >
+		</ScrollProvider>
 	)
 }
