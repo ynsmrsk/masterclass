@@ -2,9 +2,9 @@
 'use client'
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import MouseMoveScroll from "@/animations/mouse-move-scroll"
 import Swing from '@/animations/swing'
-import Link from "next/link"
 import { getStudentWorks } from "@/sanity/sanity-utils"
 
 export default function StudentWorks() {
@@ -56,7 +56,6 @@ export default function StudentWorks() {
 		} while (!isOverlap())
 	}
 
-
 	useEffect(() => {
 		async function getData() {
 			const studentWorks = await getStudentWorks()
@@ -76,7 +75,7 @@ export default function StudentWorks() {
 							key={i}
 							href={`/student-works/${item.slug}`}
 							data-size={item.randVW}
-							className="block relative mx-auto md:absolute hover:z-10 group"
+							className="absolute hover:z-10 group"
 							style={{
 								width: `${item.randVW}vw`,
 								height: `${item.randVH}vw`,
@@ -84,11 +83,11 @@ export default function StudentWorks() {
 								top: `${item.randY}px`,
 							}}
 						>
-							<span className="text-white text-center text-xl lg:text-2xl font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
+							<span className="text-white text-center text-xl font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
 								{item.by}
 							</span>
 							<Image
-								className="rounded-[3px] w-full object-cover group-hover:brightness-75 transition"
+								className="rounded w-full object-cover group-hover:brightness-75 transition"
 								src={item.img}
 								width={500}
 								height={500}

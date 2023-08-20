@@ -17,8 +17,7 @@ const fontBody = localFont({
 export const metadata = {
 	title: 'Immersive Images',
 	description: "Interior design alanında uzman eğitmen Selman Can'ın çevrimiçi eğitimi",
-}
-*/
+} */
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (

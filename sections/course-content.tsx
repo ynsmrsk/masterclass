@@ -4,10 +4,11 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default function CourseContent() {
-	gsap.registerPlugin(ScrollTrigger)
-	const container = useRef<HTMLDivElement>(null)
+	const container = useRef(null)
 
 	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger)
+
 		let ctx = gsap.context((self) => {
 			const elements = self.selector(".card")
 			const distributor = gsap.utils.distribute({ base: 0.9, amount: 0.1 })
@@ -49,16 +50,20 @@ export default function CourseContent() {
 	}, [])
 
 	return (
-		<section ref={container} className='h-[350vh] mb-5 mx-4 pt-16 lg:pt-32'>
+		<section ref={container} className='h-[330vh] lg:h-[360vh]'>
 			<div className="container flex flex-col items-center">
-				<h2 className='font-display text-3xl lg:text-5xl font-medium mb-6 lg:mb-12 text-center'>Ders İçeriği</h2>
-				{programs.map((program, i) =>
+				<h2 className='font-display text-3xl lg:text-5xl font-medium mb-6 lg:mb-12 text-center'>
+					Ders İçeriği
+				</h2>
+				{programs.map(program =>
 					<div
-						key={i}
+						key={program.img}
 						className='card will-change-transform w-full rounded-xl lg:rounded-2xl p-10 lg:p-16 border-[0.5px] border-primary-600 h-[40vh] mb-8 bg-center bg-cover'
 						style={{ backgroundImage: `linear-gradient(to bottom,rgba(24,23,23,0.6),rgba(24,23,23,0.1)),url("${program.img}")` }}
 					>
-						<h3 className='text-4xl lg:text-6xl text-light font-semibold'>{program.title}</h3>
+						<h3 className='text-4xl lg:text-6xl text-light font-semibold'>
+							{program.title}
+						</h3>
 					</div>
 				)}
 			</div>

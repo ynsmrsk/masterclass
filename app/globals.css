@@ -5,31 +5,59 @@
 @layer base {
 	body {
 		overflow-x: hidden;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 
-	html, 
-	body { 
-		@apply 
-		overscroll-none 
-		bg-light 
-		scroll-smooth 
-		select-none 
+	html,
+	body {
+		@apply overscroll-none bg-light scroll-smooth select-none
 	}
 
-	#trailer { @apply hidden }
-
-	body:hover #trailer { 
-		@apply opacity-100 
+	#trailer {
+		@apply hidden
 	}
 
-	@media (pointer:fine) { 
-		#trailer { @apply grid } 
+	body:hover #trailer {
+		@apply opacity-100;
+	}
+
+	@media (pointer:fine) {
+		#trailer {
+			@apply grid
+		}
 	}
 }
 
 @layer components {}
+
 @layer utilities {}
 
+
+/* Accordion transition */
 .ReactCollapse--collapse {
-  transition: height 500ms;
+	transition: height 500ms;
+}
+
+/* Text Repetition Effect */
+.content__title {
+	font-size: 20vw;
+	display: grid;
+	font-family: var(--font-display);
+	font-weight: bold;
+	text-transform: uppercase;
+	-webkit-touch-callout: none;
+	user-select: none;
+}
+
+.text-rep span {
+	color: white;
+	grid-area: 1 / 1 / 2 / 2;
+	background: black;
+	line-height: 0.75;
+	will-change: transform;
+}
+
+.text-rep span:not(:last-child) {
+	color: white;
 }

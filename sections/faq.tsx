@@ -10,14 +10,14 @@ type Faq = {
 function AccordionItem({ isOpen, toggle, faq }) {
 	return (
 		<div className='group'>
-			<div onClick={toggle} className="lg:group-hover:px-16 transition-all border-t border-primary-300 pt-4 md:pt-6 pb-3 md:pb-4 px-3 md:px-12 flex justify-between items-center gap-3 cursor-pointer">
+			<div onClick={toggle} className="pt-4 md:pt-6 pb-3 md:pb-4 px-2 md:px-4 transition-all border-t border-primary-200 flex justify-between items-center gap-3 cursor-pointer">
 				<p className="text-xl md:text-2xl font-medium">{faq.question}</p>
-				<svg className={`w-5 h-5 flex-shrink-0 transform transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+				<svg className={`w-5 h-5 flex-shrink-0 transform transition-transform text-primary-600 ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 					<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d='M19 9l-7 7-7-7' />
 				</svg>
 			</div>
 			<Collapse isOpened={isOpen}>
-				<div className="lg:group-hover:px-16 transition-all max-w-4xl px-3 md:px-12 pb-4 md:pb-6 text-lg md:text-xl text-primary-800">{faq.answer}</div>
+				<div className="transition-all max-w-4xl px-2 md:px-4 pb-4 md:pb-6 text-lg md:text-xl text-primary-800">{faq.answer}</div>
 			</Collapse>
 		</div>
 	)
@@ -33,7 +33,7 @@ export default function Faq() {
 	}
 
 	return (
-		<section>
+		<section className='mb-10 lg:mb-32'>
 			<div className="container">
 				{faqs.map((faq, i) =>
 					<AccordionItem

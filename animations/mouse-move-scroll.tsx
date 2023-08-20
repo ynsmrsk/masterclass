@@ -41,12 +41,12 @@ const MouseMoveScroll = forwardRef(({ children }, holder) => {
 			document.removeEventListener("mousemove", onMouseMove)
 			window.removeEventListener("resize", onResize)
 		}
-	}, [])
+	}, [holder])
 
 	return (
-		<div className="relative w-screen h-screen overflow-scroll md:overflow-hidden bg-[#111]">
-			<div className="w-full md:w-auto h-full md:h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-				<div ref={holder} className="h-[1000vh] md:w-[250vw] md:h-[300vh] cursor-crosshair relative">
+		<div className="relative w-screen h-screen overflow-hidden bg-[#111]">
+			<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+				<div ref={holder} className="w-[250vw] h-[300vh] cursor-crosshair relative">
 					{children}
 				</div>
 			</div>
