@@ -56,7 +56,7 @@ async function RenderStudentWork({ params }: { params: { student: string } }) {
 				)}
 			</div>
 
-			<svg className="arrow-down-svg animate-[bounce_2s_ease-out_infinite] py-2 border border-dark fixed z-10 left-2 lg:left-4 bottom-4 h-12 bg-light rounded" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<svg className="arrow-down-svg animate-[bounce_2s_ease-out_infinite] text-primary-800 py-2 border border-primary-800 fixed z-10 left-2 lg:left-4 bottom-4 h-12 bg-light rounded" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 				<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3" />
 			</svg>
 		</div>
