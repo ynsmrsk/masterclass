@@ -1,6 +1,6 @@
 // @ts-nocheck
 'use client'
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import * as Section from "@/sections"
@@ -10,12 +10,9 @@ import ContactLinks from "@/components/contact-links"
 import useWindowWidth from "@/hooks/use-window-width"
 
 export default function Home() {
-	const [isMobile, setIsMobile] = useState()
 	const width = useWindowWidth()
 
 	useEffect(() => {
-		width <= 992 ? setIsMobile(true) : setIsMobile(false)
-
 		gsap.registerPlugin(ScrollTrigger)
 
 		let ctx = gsap.context(() => {
@@ -55,50 +52,35 @@ export default function Home() {
 	return (
 		<>
 			<Section.Hero />
-
 			<Section.IntroText />
-
 			<Trailer />
-
 			<Section.Benefits />
-
 			<div data-color="#f4efe9 #161616">
 				<Section.CompareSlider />
 			</div>
-
 			<div className="mb-24">
 				<Section.Testimonials />
 			</div>
-
 			<div data-color="#f4efe9 #161616">
 				<Section.UsedPrograms />
 			</div>
-
 			<div data-color='#161616 #f4efe9'>
 				<Section.Numbers />
 			</div>
-
 			<div data-color="#f4efe9 #161616">
 				<Section.CourseContent />
 			</div>
-
 			<div data-color="#161616 #f4efe9">
 				<Section.About />
 			</div>
-
 			<div className="py-24 md:py-48">
 				<h2 className="text-center mb-10 lg:mb-16 text-3xl md:text-4xl font-medium font-display">Sıkça Sorulan Sorular</h2>
 				<Section.Faq />
 			</div>
-
 			<Marquee>
 				Öğrenci Çalışmaları
 			</Marquee>
-
-			{isMobile
-				? <Section.StudentWorksMobile />
-				: <Section.StudentWorks isPage={false} />}
-
+			<Section.StudentWorks isPage={false} />
 			<ContactLinks />
 		</>
 	)

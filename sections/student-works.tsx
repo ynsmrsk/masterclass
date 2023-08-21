@@ -6,12 +6,16 @@ import Link from "next/link"
 import MouseMoveScroll from "@/animations/mouse-move-scroll"
 import Swing from '@/animations/swing'
 import { getStudentWorks } from "@/sanity/sanity-utils"
+import useWindowWidth from "@/hooks/use-window-width"
+import { ArrowRightIcon } from "@/components/icons"
 
 export default function StudentWorks() {
 	const [items, setItems] = useState([])
 	const holder = useRef(null)
 	const itemList = []
 	const randBetween = (min, max) => Math.random() * (max - min) + min
+
+	const width = useWindowWidth()
 
 	let slug, by, ig, img, aspectRatio, randVW, randVH, pxW, pxH,
 		randX, randY, minDistX, minDistY, distX, distY, protect = 0
@@ -67,36 +71,63 @@ export default function StudentWorks() {
 	}, [])
 
 	return (
-		<MouseMoveScroll ref={holder}>
-			{items.length &&
-				<Swing>
-					{items.map((item, i) =>
+		<>
+			<section className="p-2 flex lg:hidden flex-col gap-4">
+				{items.map((item, i) =>
+					<div key={i} className="flex flex-col gap-1">
+						<Image
+							className="rounded-sm w-full object-cover group-hover:brightness-75 transition"
+							src={item.img}
+							width={500}
+							height={500}
+							alt={`${item.by} çalışması`}
+						/>
 						<Link
-							key={i}
 							href={`/student-works/${item.slug}`}
-							data-size={item.randVW}
-							className="absolute hover:z-10 group"
-							style={{
-								width: `${item.randVW}vw`,
-								height: `${item.randVH}vw`,
-								left: `${item.randX}px`,
-								top: `${item.randY}px`,
-							}}
+							className="self-end flex gap-1 text-dark text-sm font-medium"
 						>
-							<span className="text-white text-center text-xl font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
-								{item.by}
-							</span>
-							<Image
-								className="rounded w-full object-cover group-hover:brightness-75 transition"
-								src={item.img}
-								width={500}
-								height={500}
-								alt=""
-							/>
+							<span className="uppercase">{item.by}</span>
+							<ArrowRightIcon className="w-[18px] h-[18px]" />
 						</Link>
-					)}
-				</Swing>
-			}
-		</MouseMoveScroll>
+					</div>
+				)}
+			</section>
+
+			<section className="hidden lg:block">
+				<MouseMoveScroll ref={holder}>
+					{items.length &&
+						<Swing>
+							{items.map((item, i) =>
+								<Link
+									key={i}
+									href={`/student-works/${item.slug}`}
+									data-size={item.randVW}
+									className="absolute hover:z-10 group"
+									style={{
+										width: `${item.randVW}vw`,
+										height: `${item.randVH}vw`,
+										left: `${item.randX}px`,
+										top: `${item.randY}px`,
+									}}
+								>
+									<span className="text-white text-center text-xl font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
+										{item.by}
+									</span>
+									<Image
+										className="rounded w-full object-cover group-hover:brightness-75 transition"
+										src={item.img}
+										width={500}
+										height={500}
+										alt=""
+									/>
+								</Link>
+							)}
+						</Swing>
+					}
+				</MouseMoveScroll>
+			</section>
+		</>
 	)
 }
+
+
