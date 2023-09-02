@@ -7,11 +7,8 @@ import * as Section from "@/sections"
 import Trailer from "@/components/trailer"
 import Marquee from "@/components/marquee"
 import ContactLinks from "@/components/contact-links"
-import useWindowWidth from "@/hooks/use-window-width"
 
 export default function Home() {
-	const width = useWindowWidth()
-
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger)
 
@@ -47,7 +44,7 @@ export default function Home() {
 			})
 		})
 		return () => ctx.revert()
-	}, [width])
+	}, [])
 
 	return (
 		<>
@@ -77,9 +74,7 @@ export default function Home() {
 				<h2 className="text-center mb-10 lg:mb-16 text-3xl md:text-4xl font-medium font-display">Sıkça Sorulan Sorular</h2>
 				<Section.Faq />
 			</div>
-			<Marquee>
-				Öğrenci Çalışmaları
-			</Marquee>
+			<Marquee>Öğrenci Çalışmaları</Marquee>
 			<Section.StudentWorks isPage={false} />
 			<ContactLinks />
 		</>

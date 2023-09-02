@@ -1,8 +1,7 @@
-// @ts-nocheck
 import { useEffect, forwardRef } from "react"
 import { gsap } from "gsap"
 
-const MouseMoveScroll = forwardRef(({ children }, holder) => {
+const MouseMove = forwardRef(({ children }, holder) => {
 	useEffect(() => {
 		let overflowX, mapPositionX,
 			overflowY, mapPositionY,
@@ -53,6 +52,6 @@ const MouseMoveScroll = forwardRef(({ children }, holder) => {
 		</div>
 	)
 })
-MouseMoveScroll.displayName = 'MouseMoveScroll'
+MouseMove.displayName = 'MouseMove'
 
-export default MouseMoveScroll
+export default MouseMove

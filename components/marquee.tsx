@@ -3,7 +3,8 @@ import React, { useEffect, useRef } from "react"
 
 export default function Marquee({ children, className }: { children: React.ReactNode, className?: string }) {
 	const comp = useRef(null)
-	const links = Array(11).fill(null)
+	const items = Array(11).fill(null)
+
 	useEffect(() => {
 		let ctx = gsap.context(() => {
 			let currentScroll = 0
@@ -15,20 +16,21 @@ export default function Marquee({ children, className }: { children: React.React
 
 			gsap.set(".marquee__inner", { xPercent: -50 })
 
-			window.addEventListener("scroll", function() {
+			window.addEventListener("scroll", function () {
 				if (window.pageYOffset > currentScroll) isScrollingDown = true
 				else isScrollingDown = false
 				gsap.to(tween, { timeScale: isScrollingDown ? 1 : -1 })
 				currentScroll = window.pageYOffset
 			})
 		}, [comp])
+
 		return () => ctx.revert()
 	}, [])
 
 	return (
 		<section ref={comp} className={`${className} marquee font-medium font-display bg-primary-200 text-primary-900 border-y-[1.5px] border-primary-900 py-3 md:py-4 relative overflow-x-hidden`}>
 			<div className="marquee__inner w-fit flex flex-auto antialiased">
-				{links.map((_, i) =>
+				{items.map((_, i) =>
 					<div key={i} className="marquee__part text-lg md:text-2xl shrink-0 px-6">
 						{children}
 					</div>
