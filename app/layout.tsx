@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<head>
 					<meta property="og:title" content="Immersive Images" />
 					<meta property="og:description" content="Interior design alanında uzman eğitmen Selman Can'ın çevrimiçi eğitimi" />
-					<meta property="og:image" content="https://fastly.picsum.photos/id/1074/200/200.jpg?hmac=o1fm0jR_nE4yW-N80QpSF9JfnnRYhRraqaTaTbCGe1c" />
+					<meta property="og:image" content="/og-image.jpg" />
 				</head>
 				<body className={`${fontBody.variable} ${fontDisplay.variable} font-body`}>
 					{children}
