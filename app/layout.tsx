@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<html lang="tr">
 				<head>
 					<meta property="og:title" content="Immersive Images" />
-					<meta property="og:description" content="Mimari görselleştirme alanında uzman eğitmen Selman Can'ın çevrimiçi eğitimi" />
+					<meta property="og:description" content="İleri seviye 3dsmax & corona görselleştirme kursuna hoşgeldiniz!" />
 					<meta property="og:image" content="https://immersiveimages.co/og-image.jpg" />
 					<meta property="twitter:image" content="https://immersiveimages.co/og-image.jpg" />
 				</head>
