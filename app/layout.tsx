@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<meta property="og:description" content="İleri seviye 3dsmax & corona görselleştirme kursuna hoşgeldiniz!" />
 					<meta property="og:image" content="https://immersiveimages.co/og-image.jpg" />
 					<meta property="twitter:image" content="https://immersiveimages.co/og-image.jpg" />
-					<link rel="icon" href="/favicon.ico" />
+					<link rel="icon" href="../favicon.ico" />
 				</head>
 				<body className={`${fontBody.variable} ${fontDisplay.variable} font-body`}>
 					{children}
