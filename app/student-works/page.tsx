@@ -12,7 +12,7 @@ export default function StudentWorksPage() {
 					rounded-sm border-[1.5px] outline-none border-light bg-dark/20 hover:bg-light
 					font-medium text-light hover:text-dark transition-colors 
 				">
-				Immersive Images
+				immersive.images
 			</Link>
 			<StudentWorks />
 		</>
