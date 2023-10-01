@@ -13,7 +13,7 @@ export default function Hero() {
 
 		let ctx = gsap.context(() => {
 			gsap.set([".logo", ".hero-image"], { autoAlpha: 1 })
-			if (scrollY === 0) gsap.set('body', { overflow: 'hidden' })
+			if (scrollY === 0) gsap.set('body', { overflowY: 'hidden' })
 
 			let images = gsap.utils.toArray("[data-direction]")
 			images.forEach(image => {
@@ -26,7 +26,7 @@ export default function Hero() {
 					duration: 2,
 					delay: 0.6,
 					ease: 'Power2.easeOut',
-					onComplete: () => gsap.set('body', { overflow: 'auto', })
+					onComplete: () => gsap.set('body', { overflowY: 'auto', })
 				})
 
 				gsap.timeline({
