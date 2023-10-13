@@ -21,7 +21,6 @@ export default function Home() {
 					start: "10% bottom",
 					end: "bottom 40%",
 					onToggle: self => {
-						// when it's enter a section from either direction (scrolling up or down), animate to its color
 						if (self.isActive) {
 							gsap.to("body", {
 								backgroundColor: bgColor,
@@ -29,8 +28,6 @@ export default function Home() {
 								overwrite: "auto",
 								duration: 0.3,
 							})
-							// when it's leave the first section scrolling in reverse
-							// or when it's scroll past the very last section (forward), return to the default colors
 						} else if ((i === 0 && self.direction < 0) || (i === coloredSections.length - 1 && self.direction > 0)) {
 							gsap.to("body", {
 								backgroundColor: "#f4efe9",
