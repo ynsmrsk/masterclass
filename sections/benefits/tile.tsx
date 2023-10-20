@@ -10,6 +10,7 @@ interface ContextProps {
 interface WrapperProps {
     numOfSlides: number
     children: React.ReactNode
+
 }
 
 export const TileContext = createContext<ContextProps>({
