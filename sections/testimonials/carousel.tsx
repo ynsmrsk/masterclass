@@ -20,7 +20,7 @@ export const CarouselContext = createContext<ContextValue>({
 	selectedIndex: -1
 })
 
-const Carousel = ({ className, children }: Props) => {
+export default function Carousel({ className, children }: Props) {
 	const [selectedIndex, setSelectedIndex] = useState(0)
 	const [viewportRef, emblaApi] = useEmblaCarousel({
 		loop: true,
@@ -49,5 +49,3 @@ const Carousel = ({ className, children }: Props) => {
 		</CarouselContext.Provider>
 	)
 }
-
-export default Carousel
