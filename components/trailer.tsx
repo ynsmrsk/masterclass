@@ -11,6 +11,7 @@ function Icon({ type }: { type: string }) {
 	switch (type) {
 		case "link": return <ArrowUpRightIcon className="fill-zinc-900 w-11 h-11 mr-[1px]" />
 		case "video": return <PlayIcon className="fill-zinc-900 w-11 h-11 ml-[1px]" />
+
 		case "fullscreen": return <ArrowsOutIcon className="fill-zinc-900 w-11 h-11 mr-[1px]" />
 		case "follow": return <CaretUpDownIcon className="fill-zinc-900 w-11 h-11 mr-[1px] rotate-90" />
 		default: return null
