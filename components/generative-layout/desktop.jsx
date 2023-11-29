@@ -15,7 +15,7 @@ export default function Desktop({ data }) {
 		randX, randY, minDistX, minDistY, distX, distY, protect = 0
 
 	function genRandSizePos(aspectRatio) {
-		aspectRatio <= 1 ? randVW = randBetween(15, 30) : randVW = randBetween(30, 60)
+		aspectRatio <= 1 ? randVW = randBetween(18, 24) : randVW = randBetween(30, 40)
 		randVH = randVW / aspectRatio
 		pxW = (document.documentElement.clientWidth * randVW) / 100
 		pxH = (document.documentElement.clientWidth * randVH) / 100
@@ -56,6 +56,7 @@ export default function Desktop({ data }) {
 	useEffect(() => {
 		data.forEach(work => genItem(work))
 		setItems(itemList)
+		console.log(itemList.length)
 	}, [])
 
 	return (
