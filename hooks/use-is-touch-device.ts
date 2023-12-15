@@ -10,6 +10,7 @@ export default function useIsTouchDevice() {
 		}
 		window.addEventListener('touchstart', handleTouchStart)
 		return () => window.removeEventListener('touchstart', handleTouchStart)
+
 	}, [])
 
 	return isTouchDevice
