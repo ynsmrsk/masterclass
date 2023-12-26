@@ -16,7 +16,7 @@ export default function Marquee({ children, className }: { children: React.React
 
 			gsap.set(".marquee__inner", { xPercent: -50 })
 
-			window.addEventListener("scroll", function () {
+			window.addEventListener("scroll", function() {
 				if (window.pageYOffset > currentScroll) isScrollingDown = true
 				else isScrollingDown = false
 				gsap.to(tween, { timeScale: isScrollingDown ? 1 : -1 })
