@@ -111,6 +111,7 @@ export default function Hero() {
 				alt="Logo"
 				width={1920}
 				height={1080}
+				priority
 			/>
 		</section>
 	)

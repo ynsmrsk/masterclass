@@ -5,7 +5,7 @@ import Review from './review'
 export default function Testimonials() {
 	return (
 		<section className='py-24'>
-			<h2 className='font-display text-2xl lg:text-3xl font-medium mb-5 lg:mb-10 text-center'>Öğrenci Yorumları</h2>
+			<h2 className='font-display text-2xl lg:text-4xl font-medium mb-5 lg:mb-10 text-center'>ÖĞRENCİ DEĞERLENDİRMELERİ</h2>
 			<Carousel>
 				{reviews.map((item, i) =>
 					<CarouselItem key={i} index={i}>

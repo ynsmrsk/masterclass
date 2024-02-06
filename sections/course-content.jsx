@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -11,11 +10,11 @@ export default function CourseContent() {
 
 		let ctx = gsap.context((self) => {
 			const elements = self.selector(".card")
-			const distributor = gsap.utils.distribute({ base: 0.9, amount: 0.1 })
+			const distributor = gsap.utils.distribute({ base: 0.85, amount: 0.15 })
 
 			const lastElST = ScrollTrigger.create({
 				trigger: elements[elements.length - 1],
-				start: `top-=${(elements.length - 1) * 30} 30%`,
+				start: `top-=${(elements.length - 1) * 30} 20%`,
 			})
 
 			elements.forEach((el, i) => {
@@ -23,7 +22,7 @@ export default function CourseContent() {
 				gsap.to(el, {
 					scrollTrigger: {
 						trigger: el,
-						start: `top-=${i * 30} 30%`,
+						start: `top-=${i * 30} 20%`,
 						end: 'top top',
 						scrub: true,
 					},
@@ -32,7 +31,7 @@ export default function CourseContent() {
 				})
 				ScrollTrigger.create({
 					trigger: el,
-					start: `top-=${i * 30} 30%`,
+					start: `top-=${i * 30} 20%`,
 					end: () => lastElST.start,
 					pin: true,
 					pinSpacing: false,
@@ -40,7 +39,7 @@ export default function CourseContent() {
 			})
 			ScrollTrigger.create({
 				trigger: 'h2',
-				start: "top 16%",
+				start: "top 10%",
 				end: () => lastElST.start,
 				pin: true,
 				pinSpacing: false,
@@ -50,15 +49,15 @@ export default function CourseContent() {
 	}, [])
 
 	return (
-		<section ref={container} className='h-[330vh] lg:h-[360vh]'>
+		<section ref={container} className='h-[400vh] lg:h-[450vh]'>
 			<div className="container flex flex-col items-center">
-				<h2 className='font-display text-3xl lg:text-5xl font-medium mb-6 lg:mb-12 text-center'>
-					Ders İçeriği
+				<h2 className='font-display text-3xl lg:text-5xl font-medium mb-5 lg:mb-10 text-center'>
+					DERS İÇERİĞİ
 				</h2>
 				{programs.map(program =>
 					<div
 						key={program.img}
-						className='card will-change-transform w-full rounded-xl lg:rounded-2xl p-10 lg:p-16 border-[0.5px] border-primary-600 h-[40vh] mb-8 bg-center bg-cover'
+						className='card w-full h-[45vh] rounded-xl lg:rounded-2xl p-10 lg:p-12 border-[0.5px] border-primary-600 mb-8 bg-center bg-cover will-change-transform'
 						style={{ backgroundImage: `linear-gradient(to bottom,rgba(24,23,23,0.6),rgba(24,23,23,0.1)),url("${program.img}")` }}
 					>
 						<h3 className='text-4xl lg:text-6xl text-light font-semibold'>
@@ -72,6 +71,10 @@ export default function CourseContent() {
 }
 
 const programs = [
+	{
+		img: '/course-content-bg/0.jpg',
+		title: 'Bilgisayar Donanımları',
+	},
 	{
 		img: '/course-content-bg/1.jpg',
 		title: 'Temel 3ds Max Ayarları',
@@ -99,6 +102,10 @@ const programs = [
 	{
 		img: '/course-content-bg/7.jpg',
 		title: 'Sanatsal Anlatım',
+	},
+	{
+		img: '/course-content-bg/8.jpg',
+		title: 'Yapay Zeka Destekli Tasarım',
 	},
 ]
 

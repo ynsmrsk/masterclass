@@ -33,14 +33,14 @@ export default function Review({ item }: { item: Props }) {
 					&ldquo;{item.quote}&rdquo;
 				</p>
 				<button
-					className={`underline underline-offset-2 text-primary-700 sm:text-xl 2xl:text-2xl ${showLink ? '' : 'hidden'}`}
+					className={`underline underline-offset-2 text-primary-600 hover:text-primary-900 transition sm:text-xl 2xl:text-2xl ${showLink ? '' : 'invisible'}`}
 					onClick={() => setShowMore((prevState) => !prevState)}
 				>
 					{showMore ? 'Daha az göster' : 'Devamını oku'}
 				</button>
 			</div>
 			<a
-				className="flex items-center gap-4"
+				className="flex items-center gap-4 hover:bg-primary-200 transition p-2 -ml-2 rounded-md"
 				target="_blank"
 				href={`https://www.instagram.com/${item.igUsername}/`}
 				rel="noreferrer"

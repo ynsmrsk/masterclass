@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<meta property="og:title" content="immersive.images çevrimiçi eğitim" />
 					<meta property="og:description" content="Foto-gerçekçi mimari görselleştirme kursu - Autodesk 3dsmax & Corona Renderer" />
 					<meta property="og:image" content="https://immersiveimages.co/og-image.jpg" />
-					<link rel="icon" href="../favicon.ico" />
+					<link rel="icon" href="../public/favicon.ico" />
 				</head>
 				<body className={`${fontBody.variable} ${fontDisplay.variable} font-body`}>
 					{children}

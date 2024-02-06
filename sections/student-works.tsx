@@ -1,7 +1,7 @@
-import GenerativeLayout from "../components/generative-layout"
+import Works from "../sections/works"
 import { getStudentWorks } from "@/sanity/sanity-utils"
 
 export default async function StudentWorks() {
 	const data = await getStudentWorks()
-	return <GenerativeLayout data={data} />
+	return <Works data={data} />
 }

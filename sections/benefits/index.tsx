@@ -5,7 +5,9 @@ import { Background, Container, Left, Right } from './tile-item'
 export default function Benefits() {
 	return (
 		<TileWrapper numOfSlides={4}>
-			<TileBackground><Background /></TileBackground>
+			<TileBackground>
+				<Background />
+			</TileBackground>
 			<TileContent>
 				{benefits.map((benefit, i) =>
 					<Tile key={i} slide={i} renderContent={({ progress }) => (
@@ -21,7 +23,7 @@ export default function Benefits() {
 								</div>
 							</Left>
 							<Right progress={progress}>
-								<Image className="h-[60vh] lg:h-[70vh] object-cover border border-primary-700 rounded-lg"
+								<Image className="h-[60vh] lg:h-[70vh] object-cover border border-primary-900 rounded-lg"
 									src={benefit.image} width={840} height={1620} alt=""
 								/>
 							</Right>
