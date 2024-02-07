@@ -84,11 +84,11 @@ export default function Home() {
 
 			<Marquee>Öğrenci Çalışmaları</Marquee>
 
-			<ContactLinks />
-
-			<Section.TextRepeat />
+			{/* <Section.TextRepeat /> */}
 
 			<Section.StudentWorks />
+
+			<ContactLinks />
 		</>
 	)
 }

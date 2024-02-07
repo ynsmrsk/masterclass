@@ -49,7 +49,7 @@ export default function CourseContent() {
 	}, [])
 
 	return (
-		<section ref={container} className='h-[400vh] lg:h-[450vh]'>
+		<section ref={container} className='h-[330vh] lg:h-[450vh]'>
 			<div className="container flex flex-col items-center">
 				<h2 className='font-display text-3xl lg:text-5xl font-medium mb-5 lg:mb-10 text-center'>
 					DERS İÇERİĞİ
@@ -57,7 +57,7 @@ export default function CourseContent() {
 				{programs.map(program =>
 					<div
 						key={program.img}
-						className='card w-full h-[45vh] rounded-xl lg:rounded-2xl p-10 lg:p-12 border-[0.5px] border-primary-600 mb-8 bg-center bg-cover will-change-transform'
+						className='card w-full h-[30vh] lg:h-[45vh] rounded-xl lg:rounded-2xl p-10 lg:p-12 border-[0.5px] border-primary-600 mb-8 bg-center bg-cover will-change-transform'
 						style={{ backgroundImage: `linear-gradient(to bottom,rgba(24,23,23,0.6),rgba(24,23,23,0.1)),url("${program.img}")` }}
 					>
 						<h3 className='text-4xl lg:text-6xl text-light font-semibold'>
