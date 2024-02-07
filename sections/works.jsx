@@ -4,7 +4,6 @@ import Image from "next/image"
 import Link from "next/link"
 import gsap from "gsap"
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin"
-import { set } from "sanity"
 
 gsap.registerPlugin(MotionPathPlugin)
 
@@ -72,37 +71,35 @@ export default function Works({ data }) {
         console.log(itemList.length)
 
         // swing
-        setTimeout(() => {
-            const elements = gsap.utils.toArray(holder.current.children)
-            elements.forEach(el => {
-                const size = 100 - el.dataset.size
-                gsap.to(el, {
-                    motionPath: {
-                        path: [
-                            { x: -size / 1.5, y: 0 },
-                            { x: -size / 1.5, y: -size / 2 },
-                            { x: 0, y: -size / 2 },
-                            { x: 0, y: 0 },
-                        ],
-                        curviness: 1,
-                    },
-                    duration: gsap.utils.random(el.dataset.size / 3, el.dataset.size / 2),
-                    delay: gsap.utils.random(0, 4),
-                    ease: "none",
-                    repeat: -1,
-                })
+        const elements = gsap.utils.toArray(holder.current.children)
+        elements.forEach(el => {
+            const size = 100 - el.dataset.size
+            gsap.to(el, {
+                motionPath: {
+                    path: [
+                        { x: -size / 1.5, y: 0 },
+                        { x: -size / 1.5, y: -size / 2 },
+                        { x: 0, y: -size / 2 },
+                        { x: 0, y: 0 },
+                    ],
+                    curviness: 1,
+                },
+                duration: gsap.utils.random(el.dataset.size / 3, el.dataset.size / 2),
+                delay: gsap.utils.random(0, 4),
+                ease: "none",
+                repeat: -1,
             })
-        }, 1000)
+        })
 
         // mouse-move
         let overflowX, mapPositionX, overflowY, mapPositionY, x, y
+
         function onResize() {
             overflowX = holder.current.offsetWidth - window.innerWidth
             overflowY = holder.current.offsetHeight - window.innerHeight
             mapPositionX = gsap.utils.mapRange(0, window.innerWidth, overflowX / 2, overflowX / -2)
             mapPositionY = gsap.utils.mapRange(0, window.innerHeight, overflowY / 2, overflowY / -2)
         }
-
         onResize()
 
         function onMouseMove(e) {
