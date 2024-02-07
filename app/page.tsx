@@ -45,7 +45,7 @@ export default function Home() {
 
 	return (
 		<>
-			{/* <Trailer />
+			<Trailer />
 
 			<Section.Hero />
 
@@ -71,7 +71,7 @@ export default function Home() {
 
 			<div data-color="#f4efe9 #161616">
 				<Section.CourseContent />
-			</div> 
+			</div>
 
 			<div data-color="#161616 #f4efe9">
 				<Section.About />
@@ -86,7 +86,7 @@ export default function Home() {
 
 			<ContactLinks />
 
-			<Section.TextRepeat /> */}
+			<Section.TextRepeat />
 
 			<Section.StudentWorks />
 		</>

@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Image from 'next/image'
 
 export default function UsedPrograms() {
-	const container = useRef<HTMLDivElement>(null)
+	const container = useRef(null)
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger)
 
