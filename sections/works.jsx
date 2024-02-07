@@ -128,12 +128,12 @@ export default function Works({ data }) {
     return (
         <div className="relative w-screen h-screen overflow-hidden bg-[#111]">
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div ref={holder} className="w-[400vw] h-[350vh] cursor-crosshair relative">
+                <div ref={holder} className="w-[300vw] h-[400vh] cursor-crosshair relative">
                     {items.length &&
                         items.map((item, i) =>
                             <Link
                                 key={i}
-                                href={`/student-works/${item.slug}`}
+                                href={`/${item.slug}`}
                                 data-size={item.randVW}
                                 className="absolute hover:z-10 group"
                                 style={{
