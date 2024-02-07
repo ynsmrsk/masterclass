@@ -12,7 +12,7 @@ export default async function StudentWork({ params }: { params: { student: strin
 		<div>
 			<div className="fixed left-2 top-4 lg:left-4 z-10 flex flex-col gap-2 items-start">
 				<Link
-					href="/"
+					href="/#student-works"
 					className="flex gap-1.5 items-center py-0.5 px-2 border border-dark rounded-full bg-light hover:bg-dark hover:text-light transition-colors"
 				>
 					<ArrowLeftIcon className="w-[18px] h-[18px]" />

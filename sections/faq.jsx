@@ -1,11 +1,6 @@
-// @ts-nocheck
+'use client'
 import { useState } from 'react'
 import { Collapse } from 'react-collapse'
-
-type Faq = {
-	question: "string",
-	answer: "string" | HTMLElement
-}
 
 function AccordionItem({ isOpen, toggle, faq }) {
 	return (

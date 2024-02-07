@@ -1,3 +1,4 @@
+'use client'
 import { useRef, useContext, createContext } from 'react'
 import { ScrollContext } from '@/utils/scroll-provider'
 import { PropsWithChildren } from 'react'

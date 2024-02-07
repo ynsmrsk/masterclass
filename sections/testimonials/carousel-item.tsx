@@ -1,5 +1,4 @@
-// TODO ts
-// @ts-nocheck
+'use client'
 import { useContext, useCallback } from 'react'
 import { CarouselContext } from './carousel'
 import styles from './carousel.module.css'

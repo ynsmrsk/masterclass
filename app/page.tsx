@@ -1,47 +1,42 @@
-// @ts-nocheck
-'use client'
-import { useEffect } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import * as Section from "@/sections"
 import Trailer from "@/components/trailer"
 import Marquee from "@/components/marquee"
 import ContactLinks from "@/components/contact-links"
 
 export default function Home() {
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger)
+	// useEffect(() => {
+	// 	gsap.registerPlugin(ScrollTrigger)
 
-		let ctx = gsap.context(() => {
-			let coloredSections = gsap.utils.toArray("[data-color]")
-			coloredSections.forEach((section, i) => {
-				let [bgColor, color] = section.getAttribute("data-color").split(" ")
-				ScrollTrigger.create({
-					trigger: section,
-					start: "10% bottom",
-					end: "bottom 40%",
-					onToggle: self => {
-						if (self.isActive) {
-							gsap.to("body", {
-								backgroundColor: bgColor,
-								color: color,
-								overwrite: "auto",
-								duration: 0.3,
-							})
-						} else if ((i === 0 && self.direction < 0) || (i === coloredSections.length - 1 && self.direction > 0)) {
-							gsap.to("body", {
-								backgroundColor: "#f4efe9",
-								color: "#181717",
-								overwrite: "auto",
-								duration: 0.3
-							})
-						}
-					}
-				})
-			})
-		})
-		return () => ctx.revert()
-	}, [])
+	// 	let ctx = gsap.context(() => {
+	// 		let coloredSections = gsap.utils.toArray("[data-color]")
+	// 		coloredSections.forEach((section, i) => {
+	// 			let [bgColor, color] = section.getAttribute("data-color").split(" ")
+	// 			ScrollTrigger.create({
+	// 				trigger: section,
+	// 				start: "10% bottom",
+	// 				end: "bottom 40%",
+	// 				onToggle: self => {
+	// 					if (self.isActive) {
+	// 						gsap.to("body", {
+	// 							backgroundColor: bgColor,
+	// 							color: color,
+	// 							overwrite: "auto",
+	// 							duration: 0.3,
+	// 						})
+	// 					} else if ((i === 0 && self.direction < 0) || (i === coloredSections.length - 1 && self.direction > 0)) {
+	// 						gsap.to("body", {
+	// 							backgroundColor: "#f4efe9",
+	// 							color: "#181717",
+	// 							overwrite: "auto",
+	// 							duration: 0.3
+	// 						})
+	// 					}
+	// 				}
+	// 			})
+	// 		})
+	// 	})
+	// 	return () => ctx.revert()
+	// }, [])
 
 	return (
 		<>
@@ -86,7 +81,9 @@ export default function Home() {
 
 			{/* <Section.TextRepeat /> */}
 
-			<Section.StudentWorks />
+			<div id="student-works">
+				<Section.StudentWorks />
+			</div>
 
 			<ContactLinks />
 		</>

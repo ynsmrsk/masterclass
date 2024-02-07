@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import { Tile, TileBackground, TileContent, TileWrapper } from "./tile"
 import { Background, Container, Left, Right } from './tile-item'

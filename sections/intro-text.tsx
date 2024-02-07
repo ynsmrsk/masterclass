@@ -1,3 +1,4 @@
+'use client'
 import { useRef, useContext } from "react"
 import { ScrollContext } from "@/utils/scroll-provider"
 
