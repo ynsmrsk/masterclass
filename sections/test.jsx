@@ -31,7 +31,7 @@ export default function Test() {
         let setX = gsap.quickSetter(world.element, "x", "px");
         let setY = gsap.quickSetter(world.element, "y", "px");
 
-        let clampX, clampY = () => { };
+        let clampX, clampY;
 
         window.addEventListener("wheel", onScroll);
         window.addEventListener("pointermove", onMove);
@@ -67,10 +67,10 @@ export default function Test() {
 
             const dt = 1.0 - Math.pow(1.0 - acceleration, gsap.ticker.deltaRatio());
 
-            //world.x = clampX(world.x + vx * dt);
+            world.x = clampX(world.x + vx * dt);
             world.y = clampY(world.y + vy * dt);
 
-            setX(world.x);
+            //setX(world.x);
             setY(world.y);
         }
 
@@ -93,25 +93,24 @@ export default function Test() {
             clampX = gsap.utils.clamp(world.maxX, 0);
             clampY = gsap.utils.clamp(world.maxY, 0);
 
-            // center the world
             world.x = (vw - bounds.width) / 2;
             setX(world.x);
         }
     }, [])
 
     return (
-        <div className="w-screen h-screen overflow-hidden bg-red-500">
-            <section ref={container} className="world w-[150vw] will-change-transform bg-blue-500">
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
-                <img alt="" className="img w-[49.7%] inline-block" src="/course-content-bg/7.jpg" />
+        <div className="w-screen h-screen overflow-hidden">
+            <section ref={container} className="world w-[150vw] will-change-transform flex flex-wrap gap-2">
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
+                <img className="img w-[49.7%]" src="/course-content-bg/7.jpg" />
             </section>
         </div>
 

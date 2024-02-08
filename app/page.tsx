@@ -7,6 +7,7 @@ export default function Home() {
 	return (
 		<>
 			<Trailer />
+			<ContactLinks />
 			<Section.Hero />
 			<Section.IntroText />
 			<Section.Benefits />
@@ -18,10 +19,10 @@ export default function Home() {
 			<Section.About />
 			<Section.Faq />
 			<Marquee>Öğrenci Çalışmaları</Marquee>
-			{/* <Section.TextRepeat /> */}
 			<Section.StudentWorks />
-			<ContactLinks />
-			{/* <Section.Test /> */}
+
+			{/* <Section.TextRepeat />
+			<Section.Test /> */}
 		</>
 	)
 }
