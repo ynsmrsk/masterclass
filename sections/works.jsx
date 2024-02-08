@@ -126,7 +126,7 @@ export default function Works({ data }) {
     }, [holder])
 
     return (
-        <div className="relative w-screen h-screen overflow-hidden bg-[#111]">
+        <div id="student-works" className="relative w-screen h-screen overflow-hidden bg-[#111]">
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div ref={holder} className="w-[300vw] h-[400vh] cursor-crosshair relative">
                     {items.length &&

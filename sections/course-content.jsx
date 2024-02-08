@@ -50,7 +50,7 @@ export default function CourseContent() {
 	}, [])
 
 	return (
-		<section ref={container} className='h-[330vh] lg:h-[450vh]'>
+		<section ref={container} className='h-[330vh] lg:h-[450vh] mb-16 lg:mb-32'>
 			<div className="container flex flex-col items-center">
 				<h2 className='font-display text-3xl lg:text-5xl font-medium mb-5 lg:mb-10 text-center'>
 					DERS İÇERİĞİ

@@ -105,7 +105,7 @@ export default function Hero() {
 			)}
 			<Image
 				className="
-					logo invisible rounded-[15px] md:rounded-[30px] px-[6vw] py-[4vw] 
+					logo invisible rounded-[15px] md:rounded-[50px] px-[6vw] py-[4vw] 
 					fixed z-50 left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2
 				"
 				src="/logo.png"

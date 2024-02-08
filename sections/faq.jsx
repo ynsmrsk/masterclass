@@ -29,6 +29,7 @@ export default function Faq() {
 
 	return (
 		<section className='mb-10 lg:mb-32'>
+			<h2 className='font-display text-2xl lg:text-4xl font-medium mb-5 lg:mb-10 text-center'>SIKÇA SORULAN SORULAR</h2>
 			<div className="container">
 				{faqs.map((faq, i) =>
 					<AccordionItem

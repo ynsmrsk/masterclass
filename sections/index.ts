@@ -10,6 +10,7 @@ import StudentWorks from './student-works'
 import Faq from './faq'
 import Numbers from './numbers'
 import TextRepeat from './text-repeat'
+import Test from './test'
 
 export {
 	Hero,
@@ -24,4 +25,5 @@ export {
 	Faq,
 	Numbers,
 	TextRepeat,
+	Test,
 }
