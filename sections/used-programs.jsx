@@ -33,7 +33,7 @@ export default function UsedPrograms() {
 	return (
 		<section className='py-3 mb-10 lg:mb-32'>
 			<div ref={container} className="container">
-				<h2 className='font-display text-2xl lg:text-3xl font-medium mb-8 lg:mb-16 text-center'>Kullanılan Yazılımlar</h2>
+				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Kullanılan yazılımlar</h2>
 				<div className='flex flex-col md:flex-row gap-10'>
 					{programs.map((program, i) =>
 						<div key={i} className='card w-full max-w-[80%] lg:max-w-full mx-auto flex items-center gap-4'>

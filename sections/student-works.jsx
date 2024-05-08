@@ -1,9 +1,11 @@
 'use client'
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin"
+import useWindowWidth from '@/hooks/use-window-width'
 
 gsap.registerPlugin(MotionPathPlugin)
 
@@ -11,6 +13,7 @@ export default function Works({ data }) {
     const holder = useRef(null)
     const [items, setItems] = useState([])
     const itemList = []
+    const windowWidth = useWindowWidth()
 
     function genItem(work) {
         let protect = 0
@@ -38,8 +41,8 @@ export default function Works({ data }) {
 
             const slug = work.slug
             const student = work.student
-            const image = work.images[0].url
-            const aspectRatio = work.images[0].aspectRatio
+            const image = work.image.url
+            const aspectRatio = work.image.aspectRatio
 
             // generate random size and position
             const randVW = aspectRatio < 1.2
@@ -51,9 +54,17 @@ export default function Works({ data }) {
             const pxW = (document.documentElement.clientWidth * randVW) / 100
             const pxH = (document.documentElement.clientWidth * randVH) / 100
             const randX = gsap.utils.random(pxW / 1.5, holder.current.offsetWidth - pxW * 1.5)
-            const randY = gsap.utils.random(pxH / 1.25, holder.current.offsetHeight - pxH * 2)
+            const randY = gsap.utils.random(pxH * 1.25, holder.current.offsetHeight - pxH * 2)
 
-            const newItem = { slug, student, image, randVW, randVH, randX, randY }
+            const newItem = {
+                slug,
+                student,
+                image,
+                randVW,
+                randVH,
+                randX,
+                randY
+            }
 
             if (!isOverlap(newItem, pxW, pxH)) {
                 itemList.push(newItem)
@@ -61,18 +72,16 @@ export default function Works({ data }) {
             }
 
             if (protect > 10000) return
-
         } while (true)
     }
 
-    useEffect(() => {
+    useGSAP(() => {
         data.forEach(item => genItem(item))
         setItems(itemList)
         console.log(itemList.length)
 
         // swing
-        const elements = gsap.utils.toArray(holder.current.children)
-        elements.forEach(el => {
+        gsap.utils.toArray(holder.current.children).forEach(el => {
             const size = 100 - el.dataset.size
             gsap.to(el, {
                 motionPath: {
@@ -85,15 +94,20 @@ export default function Works({ data }) {
                     curviness: 1,
                 },
                 duration: gsap.utils.random(el.dataset.size / 3, el.dataset.size / 2),
-                delay: gsap.utils.random(0, 4),
+                delay: gsap.utils.random(0, 2),
                 ease: "none",
                 repeat: -1,
+            })
+
+            gsap.from(el, {
+                autoAlpha: 0,
+                duration: 1,
+                delay: gsap.utils.random(0.3, 1.5),
             })
         })
 
         // mouse-move
         let overflowX, mapPositionX, overflowY, mapPositionY, x, y
-
         function onResize() {
             overflowX = holder.current.offsetWidth - window.innerWidth
             overflowY = holder.current.offsetHeight - window.innerHeight
@@ -107,7 +121,7 @@ export default function Works({ data }) {
                 x = e.clientX || (e.changedTouches && e.changedTouches[0].clientX) || 0
                 y = e.clientY || (e.changedTouches && e.changedTouches[0].clientY) || 0
                 gsap.to(holder.current, {
-                    duration: 7,
+                    duration: 5,
                     overwrite: true,
                     ease: "Power4.easeOut",
                     x: mapPositionX(x),
@@ -116,26 +130,31 @@ export default function Works({ data }) {
             }
         }
 
-        document.addEventListener("mousemove", onMouseMove)
+        if (windowWidth > 1024)
+            document.addEventListener("mousemove", onMouseMove)
         window.addEventListener("resize", onResize)
 
         return () => {
             document.removeEventListener("mousemove", onMouseMove)
             window.removeEventListener("resize", onResize)
         }
-    }, [holder])
+    }, {
+        scope: holder,
+        dependencies: [windowWidth],
+        revertOnUpdate: true
+    })
 
     return (
-        <div id="student-works" className="relative w-screen h-screen overflow-hidden bg-[#111]">
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div ref={holder} className="w-[300vw] h-[400vh] cursor-crosshair relative">
+        <div id="student-works" className="relative w-screen h-screen lg:overflow-hidden">
+            <div className="absolute overflow-x-hidden h-full lg:h-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div ref={holder} className="w-screen lg:w-[360vw] h-[360vh] cursor-crosshair relative bg-black">
                     {items.length &&
-                        items.map((item, i) =>
+                        items.map(item =>
                             <Link
-                                key={i}
                                 href={`/${item.slug}`}
+                                key={item.slug}
                                 data-size={item.randVW}
-                                className="absolute hover:z-10 group"
+                                className="image absolute hover:z-10 group"
                                 style={{
                                     width: `${item.randVW}vw`,
                                     height: `${item.randVH}vw`,
@@ -143,14 +162,14 @@ export default function Works({ data }) {
                                     top: `${item.randY}px`,
                                 }}
                             >
-                                <span className="text-white text-center text-xl font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
+                                <span className="text-white text-center whitespace-nowrap text-xl tracking-wider font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
                                     {item.student}
                                 </span>
                                 <Image
-                                    className="rounded w-full object-cover group-hover:brightness-75 transition"
+                                    className="w-full h-auto object-cover group-hover:brightness-50 transition"
                                     src={item.image}
-                                    width={500}
-                                    height={500}
+                                    width={400}
+                                    height={400}
                                     alt=""
                                 />
                             </Link>

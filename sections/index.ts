@@ -6,11 +6,11 @@ import Testimonials from './testimonials'
 import About from './about'
 import UsedPrograms from './used-programs'
 import CourseContent from './course-content'
-import StudentWorks from './student-works'
 import Faq from './faq'
 import Numbers from './numbers'
 import TextRepeat from './text-repeat'
-import Test from './test'
+import StudentWorks from './student-works'
+import Brands from './brands'
 
 export {
 	Hero,
@@ -21,9 +21,9 @@ export {
 	About,
 	UsedPrograms,
 	CourseContent,
-	StudentWorks,
 	Faq,
 	Numbers,
 	TextRepeat,
-	Test,
+	StudentWorks,
+	Brands
 }

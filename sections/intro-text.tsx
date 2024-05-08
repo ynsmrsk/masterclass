@@ -1,11 +1,11 @@
 'use client'
-import { useRef, useContext } from "react"
-import { ScrollContext } from "@/utils/scroll-provider"
+import { useRef } from "react"
+import { useScrollY } from "@/hooks/use-scroll-y"
 
 const texts = [
 	"Sunduğum kapsamlı eğitim programı ile ezberlerden kurtul!",
 	"Eğitim toplamda 15 saatten fazla süreye sahip.",
-	'Gerçek bir "Görselleştirme Uzmanı" olmak istiyorsan, Yerini Ayırt!'
+	'Gerçek bir "Görselleştirme Uzmanı" olmak istiyorsan yerini ayırt!'
 ]
 
 function opacityForBlock(sectionProgress: number, blockNumber: number) {
@@ -15,9 +15,10 @@ function opacityForBlock(sectionProgress: number, blockNumber: number) {
 }
 
 export default function IntroText() {
-	const { scrollY } = useContext(ScrollContext),
-		refContainer = useRef<HTMLDivElement>(null),
-		numOfBlocks = 3
+	const scrollY = useScrollY()
+
+	const refContainer = useRef<HTMLDivElement>(null)
+	const numOfBlocks = 3
 	let blockProgress = 0
 
 	if (refContainer.current) {

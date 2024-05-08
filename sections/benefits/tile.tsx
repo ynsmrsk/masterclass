@@ -1,7 +1,7 @@
 'use client'
 import { useRef, useContext, createContext } from 'react'
-import { ScrollContext } from '@/utils/scroll-provider'
 import { PropsWithChildren } from 'react'
+import { useScrollY } from '@/hooks/use-scroll-y'
 
 interface ContextProps {
     numOfSlides: number
@@ -20,9 +20,9 @@ export const TileContext = createContext<ContextProps>({
 })
 
 export function TileWrapper({ numOfSlides, children }: WrapperProps) {
-    const { scrollY } = useContext(ScrollContext),
-        refContainer = useRef<HTMLDivElement>(null),
-        { current: elContainer } = refContainer
+    const scrollY = useScrollY()
+    const refContainer = useRef<HTMLDivElement>(null)
+    const { current: elContainer } = refContainer
     let currentSlide = 0
     if (elContainer) {
         const { clientHeight, offsetTop } = elContainer,

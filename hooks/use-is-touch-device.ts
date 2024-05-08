@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 
 export default function useIsTouchDevice() {
@@ -10,7 +12,6 @@ export default function useIsTouchDevice() {
 		}
 		window.addEventListener('touchstart', handleTouchStart)
 		return () => window.removeEventListener('touchstart', handleTouchStart)
-
 	}, [])
 
 	return isTouchDevice

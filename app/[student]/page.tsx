@@ -33,11 +33,11 @@ export default async function StudentWork({ params }: { params: { student: strin
 				{data.images.map(image =>
 					<Image
 						key={image.url}
-						className="image absolute left-1/2 -translate-x-1/2 will-change-transform h-screen w-auto object-cover"
+						className="image h-screen w-auto absolute left-1/2 -translate-x-1/2 will-change-transform object-cover"
 						src={image.url}
-						alt=""
 						width={1920}
 						height={1080}
+						alt=""
 					/>
 				)}
 			</Animation>
