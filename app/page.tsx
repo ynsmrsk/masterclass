@@ -6,7 +6,7 @@ import { getStudentWorks } from "@/sanity/sanity-utils"
 
 async function StudentWorks() {
 	const data = await getStudentWorks()
-	return <Section.StudentWorks data={data} />
+	return <Section.StudentWorks data={data} isPage={false} />
 }
 
 export default function Home() {
@@ -18,11 +18,11 @@ export default function Home() {
 			<Section.IntroText />
 			<Section.Benefits />
 			<Section.CompareSlider />
+			<Section.Brands />
 			<Section.Testimonials />
 			<Section.UsedPrograms />
 			<Section.Numbers />
 			<Section.CourseContent />
-			<Section.Brands />
 			<Section.About />
 			<Section.Faq />
 			{/* <Section.TextRepeat /> */}

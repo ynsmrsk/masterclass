@@ -9,7 +9,7 @@ import useWindowWidth from '@/hooks/use-window-width'
 
 gsap.registerPlugin(MotionPathPlugin)
 
-export default function Works({ data }) {
+export default function Works({ data, isPage }) {
     const holder = useRef(null)
     const [items, setItems] = useState([])
     const itemList = []
@@ -145,38 +145,48 @@ export default function Works({ data }) {
     })
 
     return (
-        <div id="student-works" className="relative w-screen h-screen lg:overflow-hidden">
-            <div className="absolute overflow-x-hidden h-full lg:h-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div ref={holder} className="w-screen lg:w-[360vw] h-[360vh] cursor-crosshair relative bg-black">
-                    {items.length &&
-                        items.map(item =>
-                            <Link
-                                href={`/${item.slug}`}
-                                key={item.slug}
-                                data-size={item.randVW}
-                                className="image absolute hover:z-10 group"
-                                style={{
-                                    width: `${item.randVW}vw`,
-                                    height: `${item.randVH}vw`,
-                                    left: `${item.randX}px`,
-                                    top: `${item.randY}px`,
-                                }}
-                            >
-                                <span className="text-white text-center whitespace-nowrap text-xl tracking-wider font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
-                                    {item.student}
-                                </span>
-                                <Image
-                                    className="w-full h-auto object-cover group-hover:brightness-50 transition"
-                                    src={item.image}
-                                    width={400}
-                                    height={400}
-                                    alt=""
-                                />
-                            </Link>
-                        )
-                    }
+        <section>
+            {isPage &&
+                <Link
+                    href="/"
+                    className="flex gap-1.5 absolute top-4 left-4 z-50 items-center py-0.5 px-4 border-[1.6px] font-medium border-light rounded-full text-light"
+                >
+                    <span className="text-sm lg:text-base">immersive.images</span>
+                </Link>
+            }
+            <div id="student-works" className="relative w-screen h-screen lg:overflow-hidden">
+                <div className="absolute overflow-x-hidden h-full lg:h-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div ref={holder} className="w-screen lg:w-[360vw] h-[360vh] cursor-crosshair relative bg-black">
+                        {items.length &&
+                            items.map(item =>
+                                <Link
+                                    href={`/${item.slug}`}
+                                    key={item.slug}
+                                    data-size={item.randVW}
+                                    className="image absolute hover:z-10 group"
+                                    style={{
+                                        width: `${item.randVW}vw`,
+                                        height: `${item.randVH}vw`,
+                                        left: `${item.randX}px`,
+                                        top: `${item.randY}px`,
+                                    }}
+                                >
+                                    <span className="text-white text-center whitespace-nowrap lg:text-xl tracking-wider font-display uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20">
+                                        {item.student}
+                                    </span>
+                                    <Image
+                                        className="w-full h-auto object-cover group-hover:brightness-50 transition"
+                                        src={item.image}
+                                        width={400}
+                                        height={400}
+                                        alt=""
+                                    />
+                                </Link>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

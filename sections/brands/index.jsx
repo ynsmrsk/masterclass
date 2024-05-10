@@ -25,7 +25,7 @@ export default function Brands() {
     }, [windowWidth])
 
     return (
-        <section className='brands py-24 lg:py-48'>
+        <section className='brands pt-36 pb-24 lg:pt-44 lg:pb-12'>
             <h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>
                 Kursiyerlerimizin çalıştığı işletmeler
             </h2>
@@ -33,13 +33,13 @@ export default function Brands() {
                 <div className="marquee">
                     <div className="marquee__group">
                         {brands.map((brand, index) => (
-                            <img key={index} src={brand} alt="" />
+                            <img loading="lazy" key={index} src={brand} alt="" />
                         ))}
                     </div>
 
                     <div aria-hidden="true" className="marquee__group">
                         {brands.map((brand, index) => (
-                            <img key={index} src={brand} alt="" />
+                            <img loading="lazy" key={index} src={brand} alt="" />
                         ))}
                     </div>
                 </div>
@@ -47,13 +47,13 @@ export default function Brands() {
                 <div className="marquee marquee--reverse">
                     <div className="marquee__group">
                         {brands.map((brand, index) => (
-                            <img key={index} src={brand} alt="" />
+                            <img loading="lazy" key={index} src={brand} alt="" />
                         ))}
                     </div>
 
                     <div className="marquee__group">
                         {brands.map((brand, index) => (
-                            <img key={index} src={brand} alt="" />
+                            <img loading="lazy" key={index} src={brand} alt="" />
                         ))}
                     </div>
                 </div>

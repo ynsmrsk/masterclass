@@ -25,7 +25,7 @@ export default function CourseContent() {
 						trigger: el,
 						start: `top-=${i * 30} 20%`,
 						end: 'top top',
-						scrub: true,
+						scrub: 0.3,
 					},
 					ease: "none",
 					scale: scaleVal,
@@ -36,6 +36,7 @@ export default function CourseContent() {
 					end: () => lastElST.start,
 					pin: true,
 					pinSpacing: false,
+					scrub: 0.3,
 				})
 			})
 			ScrollTrigger.create({
@@ -44,6 +45,7 @@ export default function CourseContent() {
 				end: () => lastElST.start,
 				pin: true,
 				pinSpacing: false,
+				scrub: 0.3,
 			})
 		}, container)
 		return () => ctx.revert()
@@ -53,11 +55,14 @@ export default function CourseContent() {
 		<section ref={container} className='h-[330vh] lg:h-[450vh] mb-16 lg:mb-32'>
 			<div className="container flex flex-col items-center">
 				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Ders içeriği</h2>
-				{programs.map(program =>
+				{programs.map((program, i) =>
 					<div
 						key={program.img}
 						className='card w-full h-[30vh] lg:h-[45vh] rounded-xl lg:rounded-2xl p-10 lg:p-12 border-[0.5px] border-primary-600 mb-8 bg-center bg-cover will-change-transform'
-						style={{ backgroundImage: `linear-gradient(to bottom,rgba(24,23,23,0.6),rgba(24,23,23,0.1)),url("${program.img}")` }}
+						style={{
+							backgroundImage: `linear-gradient(to bottom,rgba(24,23,23,0.6),rgba(24,23,23,0.1)),url("${program.img}")`,
+							backgroundPositionY: i === 0 ? '35%' : 'center',
+						}}
 					>
 						<h3 className='text-4xl lg:text-6xl text-light font-semibold'>
 							{program.title}

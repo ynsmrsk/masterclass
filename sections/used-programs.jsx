@@ -16,7 +16,7 @@ export default function UsedPrograms() {
 					trigger: container.current,
 					start: "center center",
 					end: '+=2500',
-					scrub: true,
+					scrub: 1,
 					pin: true,
 				}
 			}).from(elements, {
@@ -42,7 +42,7 @@ export default function UsedPrograms() {
 								width={80}
 								height={80}
 								alt={program.title}
-								className='w-20 h-20'
+								className='w-20 h-20 lg:w-28 lg:h-28'
 							/>
 							<div className='font-medium'>
 								<h4 className='text-xl lg:text-2xl text-primary-500'>{program.subtitle}</h4>
