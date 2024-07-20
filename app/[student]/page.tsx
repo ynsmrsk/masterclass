@@ -11,10 +11,7 @@ export default async function StudentWork({ params }: { params: { student: strin
 	return (
 		<div>
 			<div className="fixed left-2 top-4 lg:left-4 z-10 flex flex-col gap-2 items-start">
-				<Link
-					href="/student-works"
-					className="flex gap-1.5 items-center py-0.5 px-2 border border-dark rounded-full bg-light hover:bg-dark hover:text-light transition-colors"
-				>
+				<Link href="/student-works" className="flex gap-1.5 items-center py-0.5 px-2 border border-dark rounded-full bg-light hover:bg-dark hover:text-light transition-colors" >
 					<ArrowLeftIcon className="w-[18px] h-[18px]" />
 					<span className="text-sm lg:text-base mt-[2.5px] uppercase">Öğrenci Çalışmaları</span>
 				</Link>
@@ -28,7 +25,7 @@ export default async function StudentWork({ params }: { params: { student: strin
 					<span className="text-sm lg:text-base mt-[1px] uppercase">{data.student}</span>
 				</a>
 			</div>
-
+			
 			<Animation>
 				{data.images.map(image =>
 					<Image

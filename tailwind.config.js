@@ -47,6 +47,15 @@ module.exports = {
 			transitionDuration: {
 				DEFAULT: '400ms',
 			},
+			keyframes: {
+			scrollx: {
+				'from': { transform: 'translateX(0)' },
+				'to': { transform: 'translateX(calc(-100% - 16px))' }
+			}
+			},
+			animation: {
+				scrollx: 'scrollx 60s linear infinite',
+			}
 		},
 	},
 	plugins: [],

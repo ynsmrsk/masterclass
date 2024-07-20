@@ -76,39 +76,39 @@ export default function CourseContent() {
 
 const programs = [
 	{
-		img: '/course-content-bg/0.jpg',
+		img: '/course-content-bg/0.avif',
 		title: 'Bilgisayar Donanımları',
 	},
 	{
-		img: '/course-content-bg/1.jpg',
+		img: '/course-content-bg/1.avif',
 		title: 'Temel 3ds Max Ayarları',
 	},
 	{
-		img: '/course-content-bg/2.jpg',
+		img: '/course-content-bg/2.avif',
 		title: 'Render Motoru Bilgisi',
 	},
 	{
-		img: '/course-content-bg/3.jpg',
+		img: '/course-content-bg/3.avif',
 		title: 'Basit & Karmaşık Materyaller',
 	},
 	{
-		img: '/course-content-bg/4.jpg',
+		img: '/course-content-bg/4.avif',
 		title: 'İç Mekan Modelleme',
 	},
 	{
-		img: '/course-content-bg/5.jpg',
+		img: '/course-content-bg/5.avif',
 		title: 'Aydınlatma Senaryoları',
 	},
 	{
-		img: '/course-content-bg/6.jpg',
+		img: '/course-content-bg/6.avif',
 		title: 'Komposizyon & Kamera Yönetimi',
 	},
 	{
-		img: '/course-content-bg/7.jpg',
+		img: '/course-content-bg/7.avif',
 		title: 'Sanatsal Anlatım',
 	},
 	{
-		img: '/course-content-bg/8.jpg',
+		img: '/course-content-bg/8.avif',
 		title: 'Yapay Zeka Destekli Tasarım',
 	},
 ]

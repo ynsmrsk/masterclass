@@ -64,6 +64,7 @@ export default function Numbers() {
 
 const data = [
 	'5 canlı ders',
+	'9 kayıtlı ders',
 	'18+ saatlik kurs',
 	'400+ öğrenci',
 ]

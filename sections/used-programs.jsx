@@ -35,8 +35,8 @@ export default function UsedPrograms() {
 			<div ref={container} className="container">
 				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Kullanılan yazılımlar</h2>
 				<div className='flex flex-col md:flex-row gap-10'>
-					{programs.map((program, i) =>
-						<div key={i} className='card w-full max-w-[80%] lg:max-w-full mx-auto flex items-center gap-4'>
+					{programs.map(program =>
+						<div key={program.title} className='card w-full max-w-[80%] lg:max-w-full mx-auto flex items-center gap-4'>
 							<Image
 								src={program.img}
 								width={80}
@@ -59,17 +59,17 @@ export default function UsedPrograms() {
 const programs = [
 	{
 		subtitle: 'Modelleme',
-		img: '/software-logos/autodesk-3dsmax.png',
+		img: '/software-logos/3dsmax.avif',
 		title: '3ds Max',
 	},
 	{
 		subtitle: 'Render',
-		img: '/software-logos/chaos-corona.png',
+		img: '/software-logos/corona.avif',
 		title: 'Corona',
 	},
 	{
 		subtitle: 'Mizanpaj',
-		img: '/software-logos/adobe-photoshop.png',
+		img: '/software-logos/photoshop.avif',
 		title: 'Photoshop',
 	}
 ]

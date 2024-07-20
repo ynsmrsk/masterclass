@@ -41,7 +41,7 @@ export default function About() {
                         h-[350px] screen-500:h-[550px] lg:aspect-auto lg:h-full w-full lg:w-[45vw]
                         border-solid lg:border-t lg:border-b lg:border-l lg:rounded-l-md border-primary-800
                     "
-					src="/profile.jpg"
+					src="/profile.avif"
 					width={3888}
 					height={5184}
 					alt="Selman Can Profile"

@@ -1,5 +1,4 @@
 import * as Section from "@/sections"
-import Trailer from "@/components/trailer"
 import Marquee from "@/components/marquee"
 import ContactLinks from "@/components/contact-links"
 import { getStudentWorks } from "@/sanity/sanity-utils"
@@ -12,12 +11,11 @@ async function StudentWorks() {
 export default function Home() {
 	return (
 		<>
-			<Trailer />
 			<ContactLinks />
 			<Section.Hero />
 			<Section.IntroText />
 			<Section.Benefits />
-			<Section.CompareSlider />
+			<Section.BeforeAfter />
 			<Section.Brands />
 			<Section.Testimonials />
 			<Section.UsedPrograms />
@@ -25,10 +23,11 @@ export default function Home() {
 			<Section.CourseContent />
 			<Section.About />
 			<Section.Faq />
-			{/* <Section.TextRepeat /> */}
 			<Marquee>Öğrenci Çalışmaları</Marquee>
 			<StudentWorks />
 		</>
 	)
 }
 
+
+{/* <Section.TextRepeat /> */ }

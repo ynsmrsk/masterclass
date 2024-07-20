@@ -1,7 +1,7 @@
 import Hero from './hero'
 import IntroText from './intro-text'
 import Benefits from './benefits'
-import CompareSlider from './compare-slider'
+import BeforeAfter from './before-after'
 import Testimonials from './testimonials'
 import About from './about'
 import UsedPrograms from './used-programs'
@@ -16,7 +16,6 @@ export {
 	Hero,
 	IntroText,
 	Benefits,
-	CompareSlider,
 	Testimonials,
 	About,
 	UsedPrograms,
@@ -25,5 +24,6 @@ export {
 	Numbers,
 	TextRepeat,
 	StudentWorks,
-	Brands
+	Brands,
+	BeforeAfter,
 }

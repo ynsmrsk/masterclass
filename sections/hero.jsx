@@ -107,7 +107,7 @@ export default function Hero() {
 					logo invisible rounded-[15px] md:rounded-[50px] px-[6vw] py-[4vw] 
 					fixed z-50 left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2
 				"
-				src="/logo.png"
+				src="/logo.avif"
 				alt="Logo"
 				width={1920}
 				height={1080}
@@ -119,27 +119,27 @@ export default function Hero() {
 
 const images = [
 	{
-		src: '/hero/2.jpg',
+		src: '/hero/2.avif',
 		direction: '-6 -4',
 		position: 'top-[10vh] md:top-[6vh] left-[8vw] md:left-[16vw]'
 	},
 	{
-		src: '/hero/4.jpg',
+		src: '/hero/4.avif',
 		direction: '5 -3',
 		position: 'top-[5vh] md:top-[1vh] right-[10vw] md:right-[22vw]'
 	},
 	{
-		src: '/hero/1.jpg',
+		src: '/hero/1.avif',
 		direction: '-3 4',
 		position: 'bottom-[28vh] md:bottom-[14vh] left-[2vw]'
 	},
 	{
-		src: '/hero/5.jpg',
+		src: '/hero/5.avif',
 		direction: '5 2',
 		position: 'bottom-[24vh] md:bottom-[8vh] right-[2vw]'
 	},
 	{
-		src: '/hero/3.jpg',
+		src: '/hero/3.avif',
 		direction: '-1 -5',
 		position: 'bottom-[12vh] md:-bottom-[3vh] right-[30vw] md:right-[40vw]',
 	},

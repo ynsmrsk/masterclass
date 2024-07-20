@@ -17,7 +17,7 @@
 
 	html,
 	body {
-		@apply overscroll-none bg-light scroll-smooth select-none
+		@apply overscroll-none bg-light text-dark scroll-smooth select-none
 	}
 
 	#trailer {

@@ -26,35 +26,23 @@ export default function Brands() {
 
     return (
         <section className='brands pt-36 pb-24 lg:pt-44 lg:pb-12'>
-            <h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>
-                Kursiyerlerimizin çalıştığı işletmeler
-            </h2>
+            <h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Kursiyerlerimizin çalıştığı işletmeler</h2>
             <article className="wrapper">
                 <div className="marquee">
                     <div className="marquee__group">
-                        {brands.map((brand, index) => (
-                            <img loading="lazy" key={index} src={brand} alt="" />
-                        ))}
+                        {brands.map(brand => <div className="image"><img loading="lazy" key={brand} src={brand} alt="" /></div>)}
                     </div>
-
                     <div aria-hidden="true" className="marquee__group">
-                        {brands.map((brand, index) => (
-                            <img loading="lazy" key={index} src={brand} alt="" />
-                        ))}
+                        {brands.map(brand => <div className="image"><img loading="lazy" key={brand} src={brand} alt="" /></div>)}
                     </div>
                 </div>
 
                 <div className="marquee marquee--reverse">
                     <div className="marquee__group">
-                        {brands.map((brand, index) => (
-                            <img loading="lazy" key={index} src={brand} alt="" />
-                        ))}
+                        {brands.map(brand => <div className="image"><img loading="lazy" key={brand} src={brand} alt="" /></div>)}
                     </div>
-
                     <div className="marquee__group">
-                        {brands.map((brand, index) => (
-                            <img loading="lazy" key={index} src={brand} alt="" />
-                        ))}
+                        {brands.map(brand => <div className="image"><img loading="lazy" key={brand} src={brand} alt="" /></div>)}
                     </div>
                 </div>
             </article>
@@ -63,21 +51,28 @@ export default function Brands() {
 }
 
 const brands = [
-    '/brands/arketipo-design.svg',
-    '/brands/barlas-parlak.svg',
-    '/brands/casa.svg',
-    '/brands/decoverse.svg',
-    '/brands/dogtas.svg',
-    '/brands/efs.svg',
-    '/brands/esra-kazmirci.svg',
-    '/brands/faar.svg',
-    '/brands/gonye.svg',
-    '/brands/mvoice.svg',
-    '/brands/naif.svg',
-    '/brands/studio13.svg',
-    '/brands/toner.svg',
-    '/brands/umadina.svg',
-    '/brands/urbanjobs.svg',
-    '/brands/yatas.svg',
-    '/brands/yet.svg',
+    '/brands/arketipo-design.avif',
+    '/brands/barlas-parlak.avif',
+    '/brands/casa.avif',
+    '/brands/decoverse.avif',
+    '/brands/dogtas.avif',
+    '/brands/efs.avif',
+    '/brands/esra-kazmirci.avif',
+    '/brands/faar.avif',
+    '/brands/gonye.avif',
+    '/brands/mvoice.avif',
+    '/brands/naif.avif',
+    '/brands/studio13.avif',
+    '/brands/toner.avif',
+    '/brands/umadina.avif',
+    '/brands/urbanjobs.avif',
+    '/brands/yatas.avif',
+    '/brands/yet.avif',
+    '/brands/beril-khalaf.avif',
+    '/brands/bib.avif',
+    '/brands/geostudio.avif',
+    '/brands/geoid.avif',
+    '/brands/folistudio.avif',
+    '/brands/podna.avif',
+    '/brands/jeyanulku.avif',
 ]
