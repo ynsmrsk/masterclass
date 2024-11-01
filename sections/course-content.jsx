@@ -52,7 +52,7 @@ export default function CourseContent() {
 	}, [])
 
 	return (
-		<section ref={container} className='h-[330vh] lg:h-[450vh] mb-16 lg:mb-32'>
+		<section ref={container} className='h-[330vh] lg:h-[450vh] relative bg-light'>
 			<div className="container flex flex-col items-center">
 				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Ders içeriği</h2>
 				{programs.map((program, i) =>

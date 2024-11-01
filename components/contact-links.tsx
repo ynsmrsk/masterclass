@@ -1,3 +1,5 @@
+'use client'
+
 import { WhatsappIcon, InstagramIcon, BehanceIcon, EnvelopeIcon } from "@/components/icons"
 
 export default function ContactLinks() {

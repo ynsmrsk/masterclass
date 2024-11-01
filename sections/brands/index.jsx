@@ -25,7 +25,7 @@ export default function Brands() {
     }, [windowWidth])
 
     return (
-        <section className='brands pt-36 pb-24 lg:pt-44 lg:pb-12'>
+        <section className='brands pt-36 pb-24 lg:pt-44 lg:pb-12 relative bg-light'>
             <h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Kursiyerlerimizin çalıştığı işletmeler</h2>
             <article className="wrapper">
                 <div className="marquee">

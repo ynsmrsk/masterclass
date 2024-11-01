@@ -52,7 +52,7 @@ export default function Numbers() {
 	}, [])
 
 	return (
-		<section ref={comp} className='px-2 md:px-16'>
+		<section ref={comp} className='px-2 md:px-16 relative bg-light'>
 			{data.map((item, i) =>
 				<h2 key={i} className='numbers-title leading-none text-center text-[9vw] font-display font-semibold'>
 					{item}

@@ -31,7 +31,7 @@ export default function UsedPrograms() {
 	}, [])
 
 	return (
-		<section className='py-3 mb-10 lg:mb-32'>
+		<section className='py-3 pb-10 lg:pb-32 relative bg-light'>
 			<div ref={container} className="container">
 				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Kullanılan yazılımlar</h2>
 				<div className='flex flex-col md:flex-row gap-10'>

@@ -33,7 +33,7 @@ export default function About() {
 		return () => ctx.revert()
 	}, [])
 	return (
-		<section className='pb-6 lg:py-8 mb-8 lg:mb-32 flex flex-col lg:flex-row-reverse lg:h-screen'>
+		<section className='pb-6 lg:py-8 pt-16 lg:pt-32 flex flex-col lg:flex-row-reverse lg:h-screen relative bg-light'>
 			<div className="relative lg:shrink-0">
 				<Image
 					className="
