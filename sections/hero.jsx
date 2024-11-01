@@ -56,7 +56,7 @@ export default function Hero() {
         className="w-full pb-20 px-4 text-white text-center will-change-transform flex flex-col items-center"
         style={{ transform: `translateY(${scrollProgress * 5}vh)` }}
       >
-        <h1 className="mb-6 text-4xl lg:text-6xl xl:text-[80px] drop-shadow-lg text-balance">Estetik ve Fotogerçekçiliği Birleştiren Mimari Görselleştirme Kursu</h1>
+        <h1 className="mb-6 text-4xl lg:text-6xl xl:text-[80px] drop-shadow-lg text-balance max-w-screen-2xl">Estetik ve Fotogerçekçiliği Birleştiren Mimari Görselleştirme Kursu</h1>
         <p className="text-xl lg:text-2xl tracking-wider drop-shadow-lg max-w-screen-lg text-balance">Çevrimiçi gerçekleşen canlı eğitimler ile profesyonel <br /> mimari tasarımlar üretmeyi adım adım öğren</p>
         <div className="flex gap-4 items-center mt-10">
           <a
