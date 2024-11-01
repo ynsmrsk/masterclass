@@ -1,6 +1,8 @@
 'use client'
 import { useScrollY } from "@/hooks/use-scroll-y"
-import { useRef, useState } from "react"
+import { useRef, useState, lazy, Suspense } from "react"
+
+const LazyVideo = lazy(() => import('./VideoPlayer'))
 
 export default function Hero() {
   const refContainer = useRef()
@@ -94,64 +96,21 @@ export default function Hero() {
         onMouseLeave={() => setIsControlsVisible(false)}
       >
         <div className="h-screen flex flex-col justify-center">
-          <div className="relative">
-        <video
-          ref={videoRef}
-          src="/film.mp4"
-          poster="/poster.avif"
-          onTimeUpdate={handleTimeUpdate}
-          onEnded={handleVideoEnd}
-          onClick={() => {
-            if (isPlaying) videoRef.current.pause()
-            else videoRef.current.play()
-            setIsPlaying(!isPlaying)
-          }}
-        />
-        <div 
-          className={`absolute bottom-4 left-4 right-4 flex items-center gap-4 text-white transition-opacity duration-300 ${
-            isControlsVisible ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <button
-            onClick={() => {
-              if (isPlaying) {
-                videoRef.current.pause()
-              } else {
-                videoRef.current.play()
-              }
-              setIsPlaying(!isPlaying)
-            }}
-            className="p-2 hover:bg-white/10 rounded-full"
-          >
-            {isPlaying 
-              ? <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-              : <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            }
-          </button>
-          <div 
-            className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden cursor-pointer"
-            onClick={(e) => {
-              const rect = e.currentTarget.getBoundingClientRect()
-              const x = e.clientX - rect.left
-              const percentage = (x / rect.width) * 100
-              const time = (percentage / 100) * videoRef.current.duration
-              videoRef.current.currentTime = time
-            }}
-          >
-            <div 
-              className="h-full bg-white" 
-              style={{ width: `${videoProgress}%` }}
-            />
+          <div className="relative max-h-screen">
+            <Suspense fallback={<div className="text-white">Yükleniyor...</div>}>
+              <LazyVideo
+                videoRef={videoRef}
+                isPlaying={isPlaying}
+                setIsPlaying={setIsPlaying}
+                videoProgress={videoProgress}
+                handleTimeUpdate={handleTimeUpdate}
+                handleVideoEnd={handleVideoEnd}
+                isControlsVisible={isControlsVisible}
+                onClose={() => dialogRef.current.close()}
+              />
+            </Suspense>
           </div>
         </div>
-        <button
-          className="absolute top-6 right-6 z-50 text-white tracking-wider font-medium flex gap-2 items-center drop-shadow-lg"
-          onClick={() => dialogRef.current.close()}>
-          <span>Kapat</span>
-          <span className="text-sm flex items-center gap-1">[ <span className="text-xs">X</span> ]</span>
-        </button>
-          </div>
-</div>
       </dialog>
 
     </header>
