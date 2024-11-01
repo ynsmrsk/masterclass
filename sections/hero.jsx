@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <header
       ref={refContainer}
-      className="min-h-screen grid [&>*]:col-span-full [&>*]:row-span-full place-items-center sticky top-0"
+      className="min-h-screen bg-dark grid [&>*]:col-span-full [&>*]:row-span-full place-items-center sticky top-0"
       style={{ filter: `brightness(${1 - scrollProgress * 0.85})` }}
     >
       <video
