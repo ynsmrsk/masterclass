@@ -32,14 +32,14 @@ export default function Home() {
       <Hero />
       <div className="relative z-20 mb-[100vh] shadow-[0px_70px_90px_rgba(0,0,0,0.8)] bg-light">
         <IntroText />
-        <Benefits />
+        {/* <Benefits /> */}
         <BeforeAfters />
         <Brands />
-        <Testimonials />
-        <UsedPrograms />
-        <Numbers />
-        <Faq />
-        <CourseContent />
+        {/* <Testimonials /> */}
+        {/* <UsedPrograms /> */}
+        {/* <Numbers /> */}
+        {/* <Faq /> */}
+        {/* <CourseContent /> */}
         <About />
         {/* <StackingText /> */}
         {/* <StackingTextClose /> */}

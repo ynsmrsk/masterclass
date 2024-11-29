@@ -20,7 +20,7 @@ export default function About() {
       pin: true,
       animation: tl,
       scrub: true,
-      pinSpacing: true,
+      pinSpacing: false,
       anticipatePin: 0.5
     })
 
