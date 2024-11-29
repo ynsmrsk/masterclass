@@ -111,27 +111,55 @@ export default function Works({ data, isPage }) {
         function onResize() {
             overflowX = holder.current.offsetWidth - window.innerWidth
             overflowY = holder.current.offsetHeight - window.innerHeight
-            mapPositionX = gsap.utils.mapRange(0, window.innerWidth, overflowX / 2, overflowX / -2)
-            mapPositionY = gsap.utils.mapRange(0, window.innerHeight, overflowY / 2, overflowY / -2)
+            const section = holder.current.closest('section')
+            mapPositionX = gsap.utils.mapRange(0, section.offsetWidth, overflowX / 2, overflowX / -2)
+            mapPositionY = gsap.utils.mapRange(0, section.offsetHeight, overflowY / 2, overflowY / -2)
         }
         onResize()
 
+        function centerView() {
+            gsap.to(holder.current, {
+                duration: 5,
+                overwrite: true,
+                ease: "Power4.easeOut",
+                x: 0,
+                y: 0,
+            })
+        }
+
         function onMouseMove(e) {
+            const section = holder.current.closest('section')
+            const rect = section.getBoundingClientRect()
+            const isInside = e.clientX >= rect.left &&
+                e.clientX <= rect.right &&
+                e.clientY >= rect.top &&
+                e.clientY <= rect.bottom
+
+            if (!isInside) {
+                centerView()
+                return
+            }
+
             if (overflowX > 0 || overflowY > 0) {
-                x = e.clientX || (e.changedTouches && e.changedTouches[0].clientX) || 0
-                y = e.clientY || (e.changedTouches && e.changedTouches[0].clientY) || 0
+                // Calculate relative position within the section
+                const relativeX = e.clientX - rect.left
+                const relativeY = e.clientY - rect.top
+
                 gsap.to(holder.current, {
                     duration: 5,
                     overwrite: true,
                     ease: "Power4.easeOut",
-                    x: mapPositionX(x),
-                    y: mapPositionY(y),
+                    x: mapPositionX(relativeX),
+                    y: mapPositionY(relativeY),
                 })
             }
         }
 
-        if (windowWidth > 1024)
+        if (windowWidth > 1024) {
             document.addEventListener("mousemove", onMouseMove)
+            // Initial center
+            centerView()
+        }
         window.addEventListener("resize", onResize)
 
         return () => {
@@ -154,7 +182,7 @@ export default function Works({ data, isPage }) {
                     <span className="text-sm lg:text-base">immersive.images</span>
                 </Link>
             }
-            <div id="student-works" className="relative w-screen h-screen lg:overflow-hidden">
+            <div id="student-works" className="relative w-screen h-[360vh] z-50 lg:h-screen overflow-hidden">
                 <div className="absolute overflow-x-hidden h-full lg:h-auto left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                     <div ref={holder} className="w-screen lg:w-[360vw] h-[360vh] cursor-crosshair relative bg-black">
                         {items.length &&

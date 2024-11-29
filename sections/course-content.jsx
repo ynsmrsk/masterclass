@@ -12,10 +12,11 @@ export default function CourseContent() {
 		let ctx = gsap.context((self) => {
 			const elements = self.selector(".card")
 			const distributor = gsap.utils.distribute({ base: 0.85, amount: 0.15 })
+			const spacing = window.innerHeight * 0.03 // 3vh spacing
 
 			const lastElST = ScrollTrigger.create({
 				trigger: elements[elements.length - 1],
-				start: `top-=${(elements.length - 1) * 30} 20%`,
+				start: `top-=${(elements.length - 1) * spacing} 20%`,
 			})
 
 			elements.forEach((el, i) => {
@@ -23,7 +24,7 @@ export default function CourseContent() {
 				gsap.to(el, {
 					scrollTrigger: {
 						trigger: el,
-						start: `top-=${i * 30} 20%`,
+						start: `top-=${i * spacing} 20%`,
 						end: 'top top',
 						scrub: 0.3,
 					},
@@ -32,7 +33,7 @@ export default function CourseContent() {
 				})
 				ScrollTrigger.create({
 					trigger: el,
-					start: `top-=${i * 30} 20%`,
+					start: `top-=${i * spacing} 20%`,
 					end: () => lastElST.start,
 					pin: true,
 					pinSpacing: false,
@@ -51,8 +52,12 @@ export default function CourseContent() {
 		return () => ctx.revert()
 	}, [])
 
+	// Calculate dynamic section height based on number of programs
+	const sectionHeight = `${(programs.length * 33) + 10}vh` // Each card takes ~33vh + some padding
+	const lgSectionHeight = `${(programs.length * 45) + 15}vh` // Larger cards for lg screens
+
 	return (
-		<section ref={container} className='h-[330vh] lg:h-[450vh] relative bg-light'>
+		<section ref={container} className={`h-[${sectionHeight}] lg:h-[${lgSectionHeight}]`}>
 			<div className="container flex flex-col items-center">
 				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Ders içeriği</h2>
 				{programs.map((program, i) =>
@@ -105,11 +110,14 @@ const programs = [
 	},
 	{
 		img: '/course-content-bg/7.avif',
-		title: 'Sanatsal Anlatım',
+		title: 'Sanatsal Anlayış',
 	},
 	{
 		img: '/course-content-bg/8.avif',
 		title: 'Yapay Zeka Destekli Tasarım',
 	},
+	{
+		img: '/course-content-bg/9.avif',
+		title: 'Etkili Sunum Hazırlama',
+	},
 ]
-

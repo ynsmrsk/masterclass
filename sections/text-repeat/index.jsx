@@ -10,10 +10,8 @@ export default function TextRepeat() {
 	}, [])
 
 	return (
-		<section className='px-2 md:px-16 bg-black h-[100vh] grid place-items-center'>
-			<h2 data-text-rep className="content__title">
-				Selman
-			</h2>
+		<section className='bg-black h-[100vh] grid place-items-center'>
+			<h2 data-text-rep className="content__title">Selman</h2>
 		</section>
 	)
 }

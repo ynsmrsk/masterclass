@@ -14,43 +14,19 @@
 	body::-webkit-scrollbar {
 		display: none;
 	}
-
-	html,
-	body {
-		@apply overscroll-none text-dark scroll-smooth select-none
-	}
-
-	#trailer {
-		@apply hidden
-	}
-
-	body:hover #trailer {
-		@apply opacity-100;
-	}
-
-	@media (pointer:fine) {
-		#trailer {
-			@apply grid
-		}
-	}
 }
 
-@layer components {}
-
-@layer utilities {}
-
-
-/* Accordion transition */
+/* ********************* accordion transition ********************* */
 .ReactCollapse--collapse {
 	transition: height 500ms;
 }
 
-/* Text Repetition Effect */
+/* ********************* text repeat effect ********************* */
 .content__title {
-	font-size: 20vw;
+	font-size: 20.5vw;
 	display: grid;
 	font-family: var(--font-display);
-	font-weight: bold;
+	font-weight: 600;
 	text-transform: uppercase;
 	-webkit-touch-callout: none;
 	user-select: none;
@@ -67,3 +43,125 @@
 .text-rep span:not(:last-child) {
 	color: white;
 }
+
+/* ********************* lenis ********************* */
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+
+.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+	overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+	pointer-events: none;
+}
+
+/* ********************* screen width text ********************* */
+@property --captured-length {
+	syntax: "<length>";
+	initial-value: 0px;
+	inherits: true;
+}
+
+@property --captured-length2 {
+	syntax: "<length>";
+	initial-value: 0px;
+	inherits: true;
+}
+
+.text-fit {
+	display: flex;
+	container-type: inline-size;
+
+	--captured-length: initial;
+	--support-sentinel: var(--captured-length, 9999px);
+
+	&>[aria-hidden] {
+		visibility: hidden;
+	}
+
+	&> :not([aria-hidden]) {
+		flex-grow: 1;
+		container-type: inline-size;
+
+		--captured-length: 100cqi;
+		--available-space: var(--captured-length);
+
+		&>* {
+			--support-sentinel: inherit;
+			--captured-length: 100cqi;
+			--ratio: tan(atan2(var(--available-space),
+						var(--available-space) - var(--captured-length)));
+			--font-size: clamp(1em,
+					1em * var(--ratio),
+					var(--max-font-size, infinity * 1px) - var(--support-sentinel));
+			inline-size: var(--available-space);
+
+			&:not(.text-fit) {
+				display: block;
+				font-size: var(--font-size);
+
+				@container (inline-size > 0) {
+					white-space: nowrap;
+				}
+			}
+
+			&.text-fit {
+				--captured-length2: var(--font-size);
+				font-variation-settings:
+					'opsz'
+					tan(atan2(var(--captured-length2), 1px));
+			}
+		}
+	}
+}
+
+/* ********************* logo marquee ********************* */
+.marquee {
+	overflow: hidden;
+	--speed: 35s;
+	--item-width: 15rem;
+	--gap: 4rem;
+	--single-slide-speed: calc(var(--speed) / var(--num-items));
+	--item-width-plus-gap: calc(var(--item-width) + var(--gap));
+	--track-width: calc(var(--item-width-plus-gap) * calc(var(--num-items) - 1));
+}
+
+.marquee-track {
+	container-type: inline-size;
+	display: grid;
+	grid-template-columns: var(--track-width) [track] 0px [resting];
+	width: max-content;
+}
+
+.marquee-item {
+	width: var(--item-width);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	grid-area: resting;
+	animation: marquee-move var(--speed) linear infinite var(--direction, forwards);
+	animation-delay: calc(var(--single-slide-speed) * var(--item-position) * -1);
+	transition: all 0.4s ease;
+}
+
+@keyframes marquee-move {
+	to {
+		transform: translateX(calc(-100cqw - 100%));
+	}
+}
+
+/* [&:has(:hover)_.marquee-item:not(:hover)]:opacity-30 */
+/* .marquee-track:has(:hover) .marquee-item:not(:hover) {
+	opacity: 0.3;
+} */

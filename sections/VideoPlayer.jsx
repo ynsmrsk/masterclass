@@ -22,7 +22,7 @@ export default function VideoPlayer({
           setIsPlaying(!isPlaying)
         }}
       />
-      <div 
+      <div
         className={`absolute bottom-4 left-4 right-4 flex items-center gap-4 text-white transition-opacity duration-300 ${
           isControlsVisible ? 'opacity-100' : 'opacity-0'
         }`}
@@ -38,12 +38,12 @@ export default function VideoPlayer({
           }}
           className="p-2 hover:bg-white/10 rounded-full"
         >
-          {isPlaying 
+          {isPlaying
             ? <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
             : <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           }
         </button>
-        <div 
+        <div
           className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden cursor-pointer"
           onClick={(e) => {
             const rect = e.currentTarget.getBoundingClientRect()
@@ -53,8 +53,8 @@ export default function VideoPlayer({
             videoRef.current.currentTime = time
           }}
         >
-          <div 
-            className="h-full bg-white" 
+          <div
+            className="h-full bg-white"
             style={{ width: `${videoProgress}%` }}
           />
         </div>
