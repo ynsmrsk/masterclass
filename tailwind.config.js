@@ -48,16 +48,25 @@ module.exports = {
 				DEFAULT: '400ms',
 			},
 			keyframes: {
-			scrollx: {
-				'from': { transform: 'translateX(0)' },
-				'to': { transform: 'translateX(calc(-100% - 16px))' }
-			}
+				scrollx: {
+					'from': { transform: 'translateX(0)' },
+					'to': { transform: 'translateX(calc(-100% - 16px))' }
+				},
+				fadein: {
+					'from': { opacity: 0 },
+					'to': { opacity: 1 }
+				},
+				fadeout: {
+					'from': { opacity: 1, display: 'block' },
+					'to': { opacity: 0, display: 'none' }
+				},
 			},
 			animation: {
 				scrollx: 'scrollx 60s linear infinite',
+				fadein: 'fadein 1s ease-in-out',
+				fadeout: 'fadeout 1s ease-in-out'
 			}
 		},
 	},
 	plugins: [],
-
 }

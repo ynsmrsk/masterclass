@@ -1,8 +1,7 @@
-import GenerativeLayout from "./generative-layout"
-import { StudentWorks } from "@/sections"
+import Works from "@/sections/student-works"
 import { getStudentWorks } from "@/sanity/sanity-utils"
 
-export default async function Page() {
+export default async function StudentWorks() {
     const data = await getStudentWorks()
-    return <StudentWorks data={data} isPage={true} />
+    return <Works data={data} isPage={true} />
 }

@@ -12,7 +12,7 @@ function AccordionItem({ isOpen, toggle, faq }) {
 				</svg>
 			</div>
 			<Collapse isOpened={isOpen}>
-				<div className="transition-all max-w-4xl px-2 md:px-4 pb-5 md:pb-7 text-lg md:text-xl text-primary-800">{faq.answer}</div>
+				<p className="max-w-4xl px-2 md:px-4 pb-5 md:pb-7 text-lg md:text-xl text-primary-800">{faq.answer}</p>
 			</Collapse>
 		</div>
 	)
@@ -22,8 +22,7 @@ export default function FaqList({ faqs }) {
 	const [isOpen, setIsOpen] = useState(false)
 
 	function toggle(i) {
-		if (isOpen === i)
-			return setIsOpen(null)
+		if (isOpen === i) setIsOpen(null)
 		setIsOpen(i)
 	}
 

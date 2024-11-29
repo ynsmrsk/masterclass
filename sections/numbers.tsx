@@ -52,7 +52,7 @@ export default function Numbers() {
 	}, [])
 
 	return (
-		<section ref={comp} className='px-2 md:px-16 relative bg-light'>
+		<section ref={comp} className='px-2 md:px-16'>
 			{data.map((item, i) =>
 				<h2 key={i} className='numbers-title leading-none text-center text-[9vw] font-display font-semibold'>
 					{item}
@@ -63,8 +63,8 @@ export default function Numbers() {
 }
 
 const data = [
-	'5 canlı ders',
-	'9 kayıtlı ders',
+	'5 çevrimiçi ders',
+	'10 çevrimdışı ders',
 	'18+ saatlik kurs',
-	'400+ öğrenci',
+	'500+ öğrenci',
 ]

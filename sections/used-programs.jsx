@@ -31,7 +31,7 @@ export default function UsedPrograms() {
 	}, [])
 
 	return (
-		<section className='py-3 pb-10 lg:pb-32 relative bg-light'>
+		<section className='py-3 pb-10 lg:pb-32'>
 			<div ref={container} className="container">
 				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Kullanılan yazılımlar</h2>
 				<div className='flex flex-col md:flex-row gap-10'>
@@ -46,7 +46,7 @@ export default function UsedPrograms() {
 							/>
 							<div className='font-medium'>
 								<h4 className='text-xl lg:text-2xl text-primary-500'>{program.subtitle}</h4>
-								<h3 className='text-3xl lg:text-4xl text-primary-800'>{program.title}</h3>
+								<h3 className='text-2xl lg:text-3xl text-primary-800'>{program.title}</h3>
 							</div>
 						</div>
 					)}
@@ -71,5 +71,10 @@ const programs = [
 		subtitle: 'Mizanpaj',
 		img: '/software-logos/photoshop.avif',
 		title: 'Photoshop',
-	}
+	},
+	{
+		subtitle: 'Mizanpaj',
+		img: '/software-logos/indesign.avif',
+		title: 'InDesign',
+	},
 ]
