@@ -37,12 +37,12 @@ export default function Home() {
         <Brands />
         <Testimonials />
         <UsedPrograms />
-        {/* <Numbers /> */}
-        {/* <CourseContent /> */}
+        <Numbers />
+        <Faq />
+        <CourseContent />
         <About />
         {/* <StackingText /> */}
         {/* <StackingTextClose /> */}
-        {/* <Faq /> */}
         <StudentWorks />
         {/* <TextRepeat /> */}
       </div>

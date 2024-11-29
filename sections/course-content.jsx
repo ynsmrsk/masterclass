@@ -57,7 +57,7 @@ export default function CourseContent() {
 	const lgSectionHeight = `${(programs.length * 45) + 15}vh` // Larger cards for lg screens
 
 	return (
-		<section ref={container} className={`h-[${sectionHeight}] lg:h-[${lgSectionHeight}]`}>
+		<section ref={container} className={`h-[${sectionHeight}] lg:h-[${lgSectionHeight}] lg:pb-[400px]`}>
 			<div className="container flex flex-col items-center">
 				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Ders içeriği</h2>
 				{programs.map((program, i) =>

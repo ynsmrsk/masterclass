@@ -66,16 +66,16 @@ export default function About() {
   }, { scope: container })
 
   return (
-    <section ref={container} className='pt-96'>
+    <section ref={container}>
       <div id='image-wrapper' className="w-screen brightness-100 h-[115vh] bg-light">
-        <Image
+        <img
           src="/selman-horizontal.avif"
           alt="Selman Can"
           className='selman hidden lg:block h-full w-full object-cover will-change-transform'
           width={1920}
           height={1080}
         />
-        <Image
+        <img
           src="/selman-vertical.avif"
           alt="Selman Can"
           className='selman lg:hidden h-full w-full object-cover will-change-transform'
@@ -89,13 +89,13 @@ export default function About() {
           <p className='text-3xl'>3D görselleştirme alanında 7 yıldan fazla deneyime sahip ve aktif olarak mesleki alanın içerisindeyim.</p>
           <p className='text-3xl'>Eğitimlerimde yazılımsal sırlarımı, fotogerçekçi sunum yöntemlerimi ve çalışmalarda kullandığım vazgeçilmez püf noktalarımı paylaşıyorum.</p>
           <div className='flex flex-col sm:flex-row gap-12 mt-6 lg:mt-12'>
-            <Image
+            <img
               src="/autodesk-authorized-training-center.avif"
               alt="Autodesk Authorized Training Center"
               width={200}
               height={51}
             />
-            <Image
+            <img
               src="/autodesk-learning-partner.avif"
               alt="Autodesk Learning Partner"
               width={200}
