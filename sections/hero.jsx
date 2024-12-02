@@ -61,7 +61,7 @@ export default function Hero() {
         <div className="flex gap-4 items-center mt-10">
           <a
             className="px-6 py-1 bg-white text-black tracking-wide rounded-full flex items-center gap-1 hover:bg-opacity-75 transition-colors"
-            href='https://wa.me/p/8971866599494004/905458771883'
+            href='https://wa.me/905378668977'
             target="_blank"
             rel="noopener noreferrer"
           >
