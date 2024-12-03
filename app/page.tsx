@@ -37,7 +37,7 @@ export default function Home() {
         <Brands />
         <Testimonials />
         {/* <UsedPrograms /> */}
-        {/* <Numbers /> */}
+        <Numbers />
         <Faq />
         {/* <CourseContent /> */}
         <About />
