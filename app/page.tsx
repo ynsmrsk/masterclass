@@ -36,8 +36,8 @@ export default function Home() {
         <BeforeAfters />
         <Brands />
         <Testimonials />
-        {/* <UsedPrograms /> */}
-        <Numbers />
+        <UsedPrograms />
+        {/* <Numbers /> */}
         <Faq />
         {/* <CourseContent /> */}
         <About />
