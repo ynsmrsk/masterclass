@@ -36,7 +36,7 @@ export default function Home() {
         <BeforeAfters />
         <Brands />
         <Testimonials />
-        <UsedPrograms />
+        {/* <UsedPrograms /> */}
         {/* <Numbers /> */}
         <Faq />
         {/* <CourseContent /> */}
