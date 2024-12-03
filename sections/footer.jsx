@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function Footer() {
   return (
     <footer className="bg-black text-light font-display h-screen flex flex-col items-center justify-center overflow-hidden fixed bottom-0 w-full">
-      {/* <span class="text-fit mt-auto -mb-[8%] font-medium">
+      {/* <span className="text-fit mt-auto -mb-[8%] font-medium">
         <span><span>selmancan</span></span>
         <span aria-hidden="true">selmancan</span>
       </span> */}
