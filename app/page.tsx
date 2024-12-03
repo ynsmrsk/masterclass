@@ -39,7 +39,7 @@ export default function Home() {
         <UsedPrograms />
         {/* <Numbers /> */}
         <Faq />
-        <CourseContent />
+        {/* <CourseContent /> */}
         <About />
         {/* <StackingText /> */}
         {/* <StackingTextClose /> */}
