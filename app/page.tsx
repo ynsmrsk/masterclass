@@ -36,10 +36,10 @@ export default function Home() {
         <BeforeAfters />
         <Brands />
         <Testimonials />
-        {/* <UsedPrograms /> */}
-        {/* <Numbers /> */}
+        {/* <UsedPrograms /> sikintili (prodda) */}
+        {/* <Numbers /> */} sikintili
         <Faq />
-        {/* <CourseContent /> */}
+        <CourseContent />
         <About />
         {/* <StackingText /> */}
         {/* <StackingTextClose /> */}

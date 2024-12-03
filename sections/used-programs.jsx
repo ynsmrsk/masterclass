@@ -1,12 +1,13 @@
 'use client'
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 
 export default function UsedPrograms() {
 	const container = useRef(null)
-	useEffect(() => {
+	useGSAP(() => {
 		gsap.registerPlugin(ScrollTrigger)
 
 		let ctx = gsap.context((self) => {
