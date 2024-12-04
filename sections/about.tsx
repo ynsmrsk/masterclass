@@ -20,8 +20,8 @@ export default function About() {
       pin: true,
       animation: tl,
       scrub: true,
-      pinSpacing: false,
-      anticipatePin: 0.5
+      anticipatePin: 0.5,
+      pinSpacing: false
     })
 
     tl.from(".selman", {
@@ -34,8 +34,8 @@ export default function About() {
       }
     })
 
-    tl.to(".selman", {
-      filter: "blur(10px)",
+    tl.to(".blur-overlay", {
+      backdropFilter: "blur(12px)",
       scrollTrigger: {
         trigger: "#content",
         start: "top bottom",
@@ -67,7 +67,8 @@ export default function About() {
 
   return (
     <section ref={container}>
-      <div id='image-wrapper' className="w-screen brightness-100 h-[115vh] bg-light">
+      <div id='image-wrapper' className="brightness-100 w-screen h-[115vh] bg-light">
+        <div className="blur-overlay absolute inset-0 z-10" />
         <Image
           src="/selman-horizontal.avif"
           alt="Selman Can"
