@@ -28,18 +28,18 @@ export default function Home() {
   return (
     <div>
       <ContactLinks />
-      {/* <Hero /> */}
+      <Hero />
       <div className="relative z-20 mb-[100vh] shadow-[0px_70px_90px_rgba(0,0,0,0.8)] bg-light">
         <IntroText />
-        {/* <Benefits /> */}
-        {/* <BeforeAfters /> */}
-        {/* <Brands /> */}
-        {/* <Testimonials /> */}
+        <Benefits />
+        <BeforeAfters />
+        <Brands />
+        <Testimonials />
         {/* sikintili (prodda) */}
         <UsedPrograms />
         {/* <Numbers /> sikintili */}
-        {/* <Faq /> */}
-        {/* <CourseContent /> */}
+        <Faq />
+        <CourseContent />
         <About />
         {/* <StackingText /> */}
         {/* <StackingTextClose /> */}
