@@ -4,7 +4,6 @@ import { getStudentWorks } from "@/sanity/sanity-utils"
 import Hero from "@/sections/hero"
 import IntroText from "@/sections/intro-text"
 import Benefits from "@/sections/benefits"
-// import BeforeAfter from "@/sections/before-after"
 import BeforeAfters from "@/sections/before-afters"
 import Brands from "@/sections/brands"
 import Testimonials from "@/sections/testimonials"
@@ -36,8 +35,9 @@ export default function Home() {
         <BeforeAfters />
         <Brands />
         <Testimonials />
-        {/* <UsedPrograms /> sikintili (prodda) */}
-        {/* <Numbers /> */} sikintili
+        {/* sikintili (prodda) */}
+        {/* <UsedPrograms /> */}
+        {/* <Numbers /> sikintili */}
         <Faq />
         <CourseContent />
         <About />
