@@ -9,40 +9,38 @@ export default function UsedPrograms() {
 	const container = useRef(null)
 	gsap.registerPlugin(ScrollTrigger)
 	useGSAP(() => {
-		const elements = document.querySelectorAll('.card')
-		gsap.timeline({
+		const cards = container.current.querySelectorAll('.card')
+		gsap.from(cards, {
+			y: 50,
+			opacity: 0,
+			duration: 1,
+			stagger: 0.2,
+			ease: 'power4.out',
 			scrollTrigger: {
 				trigger: container.current,
-				start: "top top",
-				end: "+=2000",
-				scrub: true,
+				start: 'top top',
+				end: '+=100%',
 				pin: true,
+				scrub: 1,
 			}
-		}).from(elements, {
-			opacity: 0,
-			y: 100,
-			stagger: 0.2,
-			ease: 'power4.out'
 		})
 	}, { container })
 
 	return (
-		<section ref={container} className='container h-dvh flex flex-col justify-center'>
+		<section ref={container} className='container flex flex-col justify-center h-screen'>
 			<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Kullanılan yazılımlar</h2>
-			<ul className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
+			<ul className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 xl:gap-6'>
 				{programs.map(program =>
-					<li key={program.title} className='card bg-primary-200 p-4 rounded-lg w-full max-w-[80%] lg:max-w-full mx-auto flex items-center gap-4'>
+					<li key={program.title} className='card bg-primary-200/60 p-3 rounded-[30px] grid grid-cols-[auto_1fr] grid-rows-2 gap-x-4 gap-y-1 font-medium'>
 						<Image
 							src={program.img}
-							width={80}
-							height={80}
+							width={120}
+							height={120}
 							alt={program.title}
-							className='w-20 h-20 lg:w-28 lg:h-28'
+							className='row-span-full rounded-[24px] h-full'
 						/>
-						<div className='font-medium'>
-							<h4 className='text-xl lg:text-2xl text-primary-500'>{program.subtitle}</h4>
-							<h3 className='text-2xl lg:text-3xl text-primary-800'>{program.title}</h3>
-						</div>
+						<h3 className='self-end text-3xl lg:text-4xl text-primary-800'>{program.title}</h3>
+						<h4 className='text-xl lg:text-2xl text-primary-500 tracking-wide'>{program.subtitle}</h4>
 					</li>
 				)}
 			</ul>

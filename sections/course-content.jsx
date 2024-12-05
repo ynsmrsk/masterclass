@@ -11,7 +11,7 @@ export default function CourseContent() {
 
 		let ctx = gsap.context((self) => {
 			const elements = self.selector(".card")
-			const distributor = gsap.utils.distribute({ base: 0.85, amount: 0.15 })
+			const distributor = gsap.utils.distribute({ base: 0.9, amount: 0.1 })
 			const spacing = window.innerHeight * 0.03 // 3vh spacing
 
 			const lastElST = ScrollTrigger.create({
@@ -36,8 +36,8 @@ export default function CourseContent() {
 					start: `top-=${i * spacing} 20%`,
 					end: () => lastElST.start,
 					pin: true,
-					pinSpacing: false,
-					scrub: 0.3,
+					scrub: true,
+					anticipatePin: 0.2
 				})
 			})
 			ScrollTrigger.create({
@@ -45,25 +45,20 @@ export default function CourseContent() {
 				start: "top 10%",
 				end: () => lastElST.start,
 				pin: true,
-				pinSpacing: false,
-				scrub: 0.3,
+				scrub: true,
 			})
 		}, container)
 		return () => ctx.revert()
 	}, [])
 
-	// Calculate dynamic section height based on number of programs
-	const sectionHeight = `${(programs.length * 33) + 10}vh` // Each card takes ~33vh + some padding
-	const lgSectionHeight = `${(programs.length * 45) + 15}vh` // Larger cards for lg screens
-
 	return (
-		<section ref={container} className={`h-[${sectionHeight}] lg:h-[${lgSectionHeight}] lg:pb-[400px]`}>
+		<section ref={container}>
 			<div className="container flex flex-col items-center">
 				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Ders içeriği</h2>
 				{programs.map((program, i) =>
 					<div
 						key={program.img}
-						className='card w-full h-[30vh] lg:h-[45vh] rounded-xl lg:rounded-2xl p-10 lg:p-12 border-[0.5px] border-primary-600 mb-8 bg-center bg-cover will-change-transform'
+						className='card w-full h-[30vh] lg:h-[50vh] rounded-xl lg:rounded-2xl p-10 lg:p-12 border-[0.5px] border-primary-600 mb-8 bg-center bg-cover will-change-transform'
 						style={{
 							backgroundImage: `linear-gradient(to bottom,rgba(24,23,23,0.6),rgba(24,23,23,0.1)),url("${program.img}")`,
 							backgroundPositionY: i === 0 ? '35%' : 'center',

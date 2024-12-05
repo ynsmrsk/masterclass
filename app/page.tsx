@@ -35,7 +35,6 @@ export default function Home() {
         <BeforeAfters />
         <Brands />
         <Testimonials />
-        {/* sikintili (prodda) */}
         <UsedPrograms />
         {/* <Numbers /> sikintili */}
         <Faq />
