@@ -9,6 +9,14 @@ export default function About() {
   gsap.registerPlugin(ScrollTrigger)
   const container = useRef(null)
 
+  // Create ResizeObserver to handle layout changes
+  const observer = new ResizeObserver(() => {
+    ScrollTrigger.refresh();
+  });
+
+  // Observe body for any layout changes
+  observer.observe(document.body);
+
   useGSAP(() => {
     const tl = gsap.timeline()
 

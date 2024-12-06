@@ -28,7 +28,7 @@ export default function UsedPrograms() {
 
 	return (
 		<section ref={container} className='container flex flex-col justify-center h-screen'>
-			<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Kullanılan yazılımlar</h2>
+			<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Kullanılan yazılımlar</h2>
 			<ul className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 xl:gap-6'>
 				{programs.map(program =>
 					<li key={program.title} className='card bg-primary-200/60 p-3 rounded-[30px] grid grid-cols-[auto_1fr] grid-rows-2 gap-x-4 gap-y-1 font-medium'>

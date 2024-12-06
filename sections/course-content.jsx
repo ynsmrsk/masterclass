@@ -6,6 +6,14 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 export default function CourseContent() {
 	const container = useRef(null)
 
+	// Create ResizeObserver to handle layout changes
+	const observer = new ResizeObserver(() => {
+		ScrollTrigger.refresh();
+	});
+
+	// Observe body for any layout changes
+	observer.observe(document.body);
+
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger)
 
@@ -16,7 +24,7 @@ export default function CourseContent() {
 
 			const lastElST = ScrollTrigger.create({
 				trigger: elements[elements.length - 1],
-				start: `top-=${(elements.length - 1) * spacing} 20%`,
+				start: `-=${(elements.length - 1) * spacing} 20%`,
 			})
 
 			elements.forEach((el, i) => {
@@ -37,7 +45,7 @@ export default function CourseContent() {
 					end: () => lastElST.start,
 					pin: true,
 					scrub: true,
-					anticipatePin: 0.2
+					anticipatePin: 0.2,
 				})
 			})
 			ScrollTrigger.create({
@@ -48,13 +56,17 @@ export default function CourseContent() {
 				scrub: true,
 			})
 		}, container)
-		return () => ctx.revert()
+
+		return () => {
+			ctx.revert();
+			observer.disconnect();
+		}
 	}, [])
 
 	return (
 		<section ref={container}>
 			<div className="container flex flex-col items-center">
-				<h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-5 lg:mb-10 text-center'>Ders içeriği</h2>
+				<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Ders içeriği</h2>
 				{programs.map((program, i) =>
 					<div
 						key={program.img}

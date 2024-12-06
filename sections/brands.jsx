@@ -1,7 +1,7 @@
 export default function Brands() {
     return (
         <section className='py-16 lg:pt-40'>
-            <h2 className='font-display tracking-wide text-xl lg:text-2xl font-medium mb-8 lg:mb-20 text-center'>Kursiyerlerimizin çalıştığı işletmeler</h2>
+            <h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Kursiyerlerimizin çalıştığı işletmeler</h2>
 
             {[narrow, mid, wide, wider].map((strip, stripIndex) => (
                 <div
