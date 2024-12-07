@@ -8,8 +8,7 @@ export default function Footer() {
         width={1920}
         height={1080}
         alt="Immersive Images logo"
-        fetchPriority="low"
-        priority={false}
+        priority
       />
     </footer>
   )
