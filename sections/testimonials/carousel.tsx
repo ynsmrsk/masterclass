@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useCallback, useEffect, useState, useContext } from 'react'
+import { createContext, useCallback, useEffect, useState } from 'react'
 import { EmblaCarouselType } from 'embla-carousel-react'
 import useEmblaCarousel from 'embla-carousel-react'
 import ClassNames from 'embla-carousel-class-names'
@@ -16,30 +16,10 @@ interface Props {
 	children: React.ReactNode
 }
 
-interface CarouselItemProps {
-	index: number
-	children: JSX.Element
-}
-
 export const CarouselContext = createContext<ContextValue>({
 	embla: undefined,
 	selectedIndex: -1
 })
-
-export function CarouselItem({ children, index }: CarouselItemProps) {
-	const { embla: emblaApi, selectedIndex } = useContext(CarouselContext)
-	const isActive = index === selectedIndex
-	const handleClick = useCallback(() => {
-		if (emblaApi === undefined) return
-		emblaApi.scrollTo(index)
-	}, [emblaApi, index])
-	return (
-		<li className={`${styles.slide} relative ${isActive ? 'active' : ''}`}
-			onClick={handleClick}>
-			{children}
-		</li>
-	)
-}
 
 export default function Carousel({ className, children }: Props) {
 	const [selectedIndex, setSelectedIndex] = useState(0)
