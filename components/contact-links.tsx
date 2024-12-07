@@ -4,7 +4,7 @@ import {
 	InstagramIcon,
 	BehanceIcon,
 	EnvelopeIcon,
-	// LinktreeIcon
+	LinktreeIcon
 } from "@/components/icons"
 
 export default function ContactLinks() {
@@ -27,6 +27,11 @@ export default function ContactLinks() {
 
 const iconStyle = 'fill-light group-hover:fill-dark transition'
 const contactLinks = [
+	{
+		name: 'linktree',
+		href: 'https://linktr.ee/immersiveimages',
+		icon: <LinktreeIcon className={iconStyle} />
+	},
 	{
 		name: 'whatsapp',
 		href: 'https://wa.me/p/8971866599494004/905458771883',

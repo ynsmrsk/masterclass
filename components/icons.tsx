@@ -29,3 +29,6 @@ export const WhatsappIcon = ({ className, ...props }: ISVGProps) =>
 
 export const EnvelopeIcon = ({ className, ...props }: ISVGProps) =>
 	<svg className={className} {...props} width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></svg>
+
+export const LinktreeIcon = ({ className, ...props }: ISVGProps) =>
+	<svg className={className} {...props} width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M136,160v72a8,8,0,0,1-16,0V160a8,8,0,0,1,16,0Zm72-64H147.31l42.35-42.34a8,8,0,0,0-11.32-11.32L136,84.69V24a8,8,0,0,0-16,0V84.69L77.66,42.34A8,8,0,0,0,66.34,53.66L108.69,96H48a8,8,0,0,0,0,16h60.69L66.34,154.34a8,8,0,0,0,11.32,11.32L128,115.31l50.34,50.35a8,8,0,0,0,11.32-11.32L147.31,112H208a8,8,0,0,0,0-16Z"></path></svg>
