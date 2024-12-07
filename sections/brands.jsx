@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Brands() {
     return (
         <section className='py-16 lg:pt-40'>
@@ -24,7 +26,7 @@ export default function Brands() {
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                <img
+                                <Image
                                     src={brand.path}
                                     alt={`${brand.name} logosu`}
                                     style={{
@@ -32,6 +34,8 @@ export default function Brands() {
                                         width: brand.width ? brand.width : "auto",
                                         maxHeight: "120px"
                                     }}
+                                    width={300}
+                                    height={120}
                                 />
                             </a>
                         )}

@@ -42,12 +42,13 @@ export default function Hero() {
   return (
     <header
       ref={refContainer}
-      className="min-h-screen bg-dark grid [&>*]:col-span-full [&>*]:row-span-full place-items-center sticky top-0 z-10"
+      className="h-screen bg-dark grid [&>*]:col-span-full [&>*]:row-span-full place-items-center sticky top-0 z-10"
       style={{ filter: `brightness(${1 - scrollProgress * 0.85})` }}
     >
       <video
-        className="object-cover w-full h-full min-h-0 overlay brightness-50"
-        src="/trailer.mp4"
+        className="object-cover w-screen h-screen min-h-0 overlay brightness-50"
+        src="/film/trailer.mp4"
+        poster="/film/trailer-poster.avif"
         muted loop playsInline
         autoPlay
         style={{ transform: `translateY(-${scrollProgress * 20}vh)` }}
