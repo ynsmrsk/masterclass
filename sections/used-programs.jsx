@@ -1,12 +1,15 @@
 'use client'
 import { useRef } from 'react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import Image from 'next/image'
 
 export default function UsedPrograms() {
 	const container = useRef(null)
+
 	useGSAP(() => {
+		gsap.registerPlugin(ScrollTrigger)
 		const cards = container.current.querySelectorAll('.card')
 		gsap.from(cards, {
 			y: 50,

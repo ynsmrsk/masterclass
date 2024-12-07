@@ -2,8 +2,7 @@ import { Metadata } from 'next'
 import './globals.css'
 import localFont from 'next/font/local'
 import SmoothScroller from "@/components/lenis"
-import ScrollTriggerRefresh from '@/lib/scrolltrigger-refresh'
-import '@/lib/gsap'
+import ScrollTriggerRefresh from '@/components/scrolltrigger-refresh'
 
 export const metadata: Metadata = {
 	title: 'immersive.images çevrimiçi eğitim',

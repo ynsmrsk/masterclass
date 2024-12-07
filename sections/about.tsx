@@ -9,6 +9,7 @@ export default function About() {
   const container = useRef(null)
 
   useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger)
     const tl = gsap.timeline()
     ScrollTrigger.create({
       trigger: "#image-wrapper",

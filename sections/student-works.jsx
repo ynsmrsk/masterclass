@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import { MotionPathPlugin } from 'gsap/dist/MotionPathPlugin'
 import useWindowWidth from '@/hooks/use-window-width'
 
 export default function Works({ data }) {
@@ -11,6 +12,7 @@ export default function Works({ data }) {
     const [items, setItems] = useState([])
     const itemList = []
     const windowWidth = useWindowWidth()
+    gsap.registerPlugin(MotionPathPlugin)
 
     function genItem(work) {
         let protect = 0

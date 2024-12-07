@@ -8,6 +8,7 @@ export default function CourseContent() {
 	const container = useRef(null)
 
 	useGSAP(() => {
+		gsap.registerPlugin(ScrollTrigger)
 		const elements = container.current.querySelectorAll('.card')
 		const distributor = gsap.utils.distribute({ base: 0.9, amount: 0.1 })
 		const spacing = window.innerHeight * 0.03 // 3vh spacing
