@@ -9,7 +9,7 @@ export default async function StudentWork({ params }: { params: { student: strin
 	const data = await getStudentWork(slug)
 
 	return (
-		<div>
+		<main className='bg-light'>
 			<div className="fixed left-2 top-4 lg:left-4 z-10 flex flex-col gap-2 items-start">
 				<Link href="/student-works" className="flex gap-1.5 items-center py-0.5 px-2 border border-dark rounded-full bg-light hover:bg-dark hover:text-light transition-colors" >
 					<ArrowLeftIcon className="w-[18px] h-[18px]" />
@@ -25,12 +25,12 @@ export default async function StudentWork({ params }: { params: { student: strin
 					<span className="text-sm lg:text-base mt-[1px] uppercase">{data.student}</span>
 				</a>
 			</div>
-			
+
 			<Animation>
 				{data.images.map(image =>
 					<Image
 						key={image.url}
-						className="image h-screen w-auto absolute left-1/2 -translate-x-1/2 will-change-transform object-cover"
+						className="image bg-light h-screen w-auto absolute left-1/2 -translate-x-1/2 will-change-transform object-contain"
 						src={image.url}
 						width={1920}
 						height={1080}
@@ -38,6 +38,6 @@ export default async function StudentWork({ params }: { params: { student: strin
 					/>
 				)}
 			</Animation>
-		</div>
+		</main>
 	)
 }

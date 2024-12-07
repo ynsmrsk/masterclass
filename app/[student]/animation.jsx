@@ -2,11 +2,13 @@
 import { useRef } from "react"
 import { gsap } from 'gsap'
 import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
 export function Animation({ children }) {
 	const container = useRef(null)
 
 	useGSAP(() => {
+		gsap.registerPlugin(ScrollTrigger)
 		gsap.to(".image:not(:last-child)", {
 			yPercent: -100,
 			ease: "none",
