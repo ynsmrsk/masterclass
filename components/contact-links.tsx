@@ -15,7 +15,8 @@ export default function ContactLinks() {
 					key={link.name}
 					href={link.href}
 					target="_blank"
-					rel="noopener noreferrer"
+					rel="noreferrer"
+					aria-label={`${link.name} adresini ziyaret et`}
 					className="group rounded-md py-2 px-3 hover:bg-light transition"
 				>
 					{link.icon}
