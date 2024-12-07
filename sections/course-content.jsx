@@ -51,7 +51,7 @@ export default function CourseContent() {
 	return (
 		<section ref={container}>
 			<div className="container flex flex-col items-center">
-				<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Ders içeriği</h2>
+				<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Ders İçeriği</h2>
 				{programs.map((program, i) =>
 					<div
 						key={program.img}
