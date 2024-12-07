@@ -2,10 +2,23 @@ import { Metadata } from 'next'
 import './globals.css'
 import localFont from 'next/font/local'
 import SmoothScroller from "@/components/lenis"
+import ScrollTriggerRefresh from '@/lib/scrolltrigger-refresh'
+import '@/lib/gsap'
 
 export const metadata: Metadata = {
 	title: 'immersive.images çevrimiçi eğitim',
 	description: 'Foto-gerçekçi mimari görselleştirme kursu - Autodesk 3dsmax & Corona Renderer',
+	openGraph: {
+		title: 'immersive.images çevrimiçi eğitim',
+		description: 'Foto-gerçekçi mimari görselleştirme kursu - Autodesk 3dsmax & Corona Renderer',
+		images: '/og-image.jpg',
+	},
+	twitter: {
+		card: 'summary',
+		title: 'immersive.images çevrimiçi eğitim',
+		description: 'Foto-gerçekçi mimari görselleştirme kursu - Autodesk 3dsmax & Corona Renderer',
+		images: '/og-image.jpg',
+	},
 }
 
 const fontDisplay = localFont({
@@ -23,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="tr">
 			<body className={`${fontBody.variable} ${fontDisplay.variable} font-body`}>
 				<SmoothScroller />
+				<ScrollTriggerRefresh />
 				{children}
 			</body>
 		</html>

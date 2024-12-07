@@ -2,24 +2,14 @@
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Image from 'next/image'
 
 export default function About() {
-  gsap.registerPlugin(ScrollTrigger)
   const container = useRef(null)
-
-  // Create ResizeObserver to handle layout changes
-  const observer = new ResizeObserver(() => {
-    ScrollTrigger.refresh();
-  });
-
-  // Observe body for any layout changes
-  observer.observe(document.body);
 
   useGSAP(() => {
     const tl = gsap.timeline()
-
     ScrollTrigger.create({
       trigger: "#image-wrapper",
       start: "top top",
@@ -93,10 +83,11 @@ export default function About() {
         />
       </div>
       <section id='content' className='text-light relative min-h-dvh -mt-32'>
-        <div className="container max-w-screen-sm text-balance flex flex-col gap-6">
-          <h1 className='text-7xl lg:text-8xl'>Selman Can</h1>
-          <p className='text-3xl'>3D görselleştirme alanında 7 yıldan fazla deneyime sahip ve aktif olarak mesleki alanın içerisindeyim.</p>
-          <p className='text-3xl'>Eğitimlerimde yazılımsal sırlarımı, fotogerçekçi sunum yöntemlerimi ve çalışmalarda kullandığım vazgeçilmez püf noktalarımı paylaşıyorum.</p>
+        <div className="container max-w-screen-sm text-balance flex flex-col">
+          <h1 className='text-6xl lg:text-7xl font-medium'>Selman Can</h1>
+          <h2 className='text-3xl mb-6'>İç mimar & 3D görselleştirme uzmanı</h2>
+          <p className='text-3xl mb-4 text-primary-300'>3D görselleştirme alanında 7 yıldan fazla deneyime sahip ve aktif olarak mesleki alanın içerisindeyim.</p>
+          <p className='text-3xl text-primary-300'>Eğitimlerimde yazılımsal sırlarımı, fotogerçekçi sunum yöntemlerimi ve çalışmalarda kullandığım vazgeçilmez püf noktalarımı paylaşıyorum.</p>
           <div className='flex flex-col sm:flex-row gap-12 mt-6 lg:mt-12'>
             <Image
               src="/autodesk-authorized-training-center.avif"

@@ -38,6 +38,7 @@ export default function Home() {
         <UsedPrograms />
         {/* <Numbers /> sikintili */}
         <Faq />
+        {/* <AboutOld /> */}
         <CourseContent />
         <About />
         {/* <StackingText /> */}

@@ -1,0 +1,42 @@
+'use client'
+import { useState } from 'react'
+import { Collapse } from 'react-collapse'
+import { getFaqs } from '@/sanity/sanity-utils'
+
+function FaqList({ faqs }) {
+	const [isOpen, setIsOpen] = useState(false)
+
+	function toggle(i) {
+		if (isOpen === i) setIsOpen(null)
+		setIsOpen(i)
+	}
+
+	return (
+		faqs.map((faq, i) =>
+			<div key={i} className='group'>
+				<div onClick={() => toggle(i)} className="pt-7 md:pt-9 pb-6 md:pb-7 transition-all border-t border-primary-200 flex justify-between items-center gap-3 cursor-pointer">
+					<p className="text-2xl md:text-3xl font-medium">{faq.question}</p>
+					<svg className={`w-5 h-5 flex-shrink-0 transform transition-transform text-primary-600 ${i === isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d='M19 9l-7 7-7-7' />
+					</svg>
+				</div>
+				<Collapse isOpened={i === isOpen}>
+					<p className="max-w-4xl pb-7 md:pb-9 text-xl md:text-2xl text-primary-800">{faq.answer}</p>
+				</Collapse>
+			</div>
+		)
+	)
+}
+
+export default async function Faq() {
+	const faqs = await getFaqs()
+
+	return (
+		<section className='pt-8 lg:pt-32 pb-10 lg:pb-32'>
+			<div className="container">
+				<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Sıkça sorulan sorular</h2>
+				<FaqList faqs={faqs} />
+			</div>
+		</section>
+	)
+}

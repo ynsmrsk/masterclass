@@ -4,10 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
-import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin"
 import useWindowWidth from '@/hooks/use-window-width'
-
-gsap.registerPlugin(MotionPathPlugin)
 
 export default function Works({ data }) {
     const holder = useRef(null)

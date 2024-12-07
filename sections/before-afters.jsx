@@ -2,11 +2,9 @@
 import { useRef } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import Image from 'next/image'
 
 export default function BeforeAfters() {
-  gsap.registerPlugin(ScrollTrigger)
   const container = useRef()
 
   useGSAP(() => {

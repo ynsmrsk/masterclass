@@ -1,67 +1,51 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 
 export default function CourseContent() {
 	const container = useRef(null)
 
-	// Create ResizeObserver to handle layout changes
-	const observer = new ResizeObserver(() => {
-		ScrollTrigger.refresh();
-	});
+	useGSAP(() => {
+		const elements = container.current.querySelectorAll('.card')
+		const distributor = gsap.utils.distribute({ base: 0.9, amount: 0.1 })
+		const spacing = window.innerHeight * 0.03 // 3vh spacing
 
-	// Observe body for any layout changes
-	observer.observe(document.body);
+		const lastElST = ScrollTrigger.create({
+			trigger: elements[elements.length - 1],
+			start: `-=${(elements.length - 1) * spacing} 20%`,
+		})
 
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger)
-
-		let ctx = gsap.context((self) => {
-			const elements = self.selector(".card")
-			const distributor = gsap.utils.distribute({ base: 0.9, amount: 0.1 })
-			const spacing = window.innerHeight * 0.03 // 3vh spacing
-
-			const lastElST = ScrollTrigger.create({
-				trigger: elements[elements.length - 1],
-				start: `-=${(elements.length - 1) * spacing} 20%`,
-			})
-
-			elements.forEach((el, i) => {
-				const scaleVal = distributor(i, elements[i], elements)
-				gsap.to(el, {
-					scrollTrigger: {
-						trigger: el,
-						start: `top-=${i * spacing} 20%`,
-						end: 'top top',
-						scrub: 0.3,
-					},
-					ease: "none",
-					scale: scaleVal,
-				})
-				ScrollTrigger.create({
+		elements.forEach((el, i) => {
+			const scaleVal = distributor(i, elements[i], elements)
+			gsap.to(el, {
+				scrollTrigger: {
 					trigger: el,
 					start: `top-=${i * spacing} 20%`,
-					end: () => lastElST.start,
-					pin: true,
-					scrub: true,
-					anticipatePin: 0.2,
-				})
+					end: 'top top',
+					scrub: 0.3,
+				},
+				ease: "none",
+				scale: scaleVal,
 			})
 			ScrollTrigger.create({
-				trigger: 'h2',
-				start: "top 10%",
+				trigger: el,
+				start: `top-=${i * spacing} 20%`,
 				end: () => lastElST.start,
 				pin: true,
 				scrub: true,
+				anticipatePin: 0.2,
 			})
-		}, container)
-
-		return () => {
-			ctx.revert();
-			observer.disconnect();
-		}
-	}, [])
+		})
+		ScrollTrigger.create({
+			trigger: 'h2',
+			start: "top 10%",
+			end: () => lastElST.start,
+			pin: true,
+			scrub: true,
+		})
+	}, { scope: container })
 
 	return (
 		<section ref={container}>

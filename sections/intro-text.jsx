@@ -8,7 +8,7 @@ const texts = [
 	'Gerçek bir "Görselleştirme Uzmanı" olmak için yerini ayırt!'
 ]
 
-function opacityForBlock(sectionProgress: number, blockNumber: number) {
+function opacityForBlock(sectionProgress, blockNumber) {
 	const progress = sectionProgress - blockNumber
 	if (progress >= 0 && progress < 1) return 1
 	return 0.2
@@ -16,7 +16,7 @@ function opacityForBlock(sectionProgress: number, blockNumber: number) {
 
 export default function IntroText() {
 	const scrollY = useScrollY()
-	const refContainer = useRef<HTMLDivElement>(null)
+	const refContainer = useRef(null)
 	const numOfBlocks = 3
 	let blockProgress = 0
 
