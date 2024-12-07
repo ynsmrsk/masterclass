@@ -12,7 +12,7 @@ import Numbers from "@/sections/numbers"
 import CourseContent from "@/sections/course-content"
 import AboutOld from "@/sections/about-old"
 import About from "@/sections/about"
-// import Faq from "@/sections/faq"
+import Faq from "@/sections/faq"
 import Works from "@/sections/student-works"
 import Footer from "@/sections/footer"
 import TextRepeat from "@/sections/text-repeat"
@@ -37,7 +37,7 @@ export default function Home() {
         <Testimonials />
         <UsedPrograms />
         {/* <Numbers /> sikintili */}
-        {/* <Faq /> */}
+        <Faq />
         {/* <AboutOld /> */}
         <CourseContent />
         <About />

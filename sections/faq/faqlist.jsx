@@ -1,9 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { Collapse } from 'react-collapse'
-import { getFaqs } from '@/sanity/sanity-utils'
 
-function FaqList({ faqs }) {
+export default function FaqList({ faqs }) {
 	const [isOpen, setIsOpen] = useState(false)
 
 	function toggle(i) {
@@ -25,18 +24,5 @@ function FaqList({ faqs }) {
 				</Collapse>
 			</div>
 		)
-	)
-}
-
-export default async function Faq() {
-	const faqs = await getFaqs()
-
-	return (
-		<section className='pt-8 lg:pt-32 pb-10 lg:pb-32'>
-			<div className="container">
-				<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Sıkça sorulan sorular</h2>
-				<FaqList faqs={faqs} />
-			</div>
-		</section>
 	)
 }
