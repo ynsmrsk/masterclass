@@ -9,20 +9,6 @@ export const metadata: Metadata = {
 	title: 'immersive.images çevrimiçi eğitim',
 	description: 'Foto-gerçekçi mimari görselleştirme kursu - Autodesk 3dsmax & Corona Renderer',
 	metadataBase: new URL('https://immersiveimages.co'),
-	// openGraph: {
-	// 	title: 'immersive.images çevrimiçi eğitim',
-	// 	description: 'Foto-gerçekçi mimari görselleştirme kursu - Autodesk 3dsmax & Corona Renderer',
-	// 	url: 'https://immersiveimages.co',
-	// 	siteName: 'immersive.images',
-	// 	images: [
-	// 		{
-	// 			url: 'https://immersiveimages.co/opengraph-image.jpg',
-	// 			width: 800,
-	// 			height: 600,
-	// 			alt: 'immersive.images og image',
-	// 		},
-	// 	],
-	// },
 }
 
 const fontDisplay = localFont({
