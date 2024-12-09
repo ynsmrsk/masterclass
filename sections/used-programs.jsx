@@ -22,7 +22,7 @@ export default function UsedPrograms() {
 				start: 'top top',
 				end: '+=100%',
 				pin: true,
-				scrub: 1,
+				scrub: true,
 			}
 		})
 	}, { scope: container })

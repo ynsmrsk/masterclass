@@ -10,13 +10,13 @@ import Testimonials from "@/sections/testimonials"
 import UsedPrograms from "@/sections/used-programs"
 import Numbers from "@/sections/numbers"
 import CourseContent from "@/sections/course-content"
-import AboutOld from "@/sections/about-old"
+// import AboutOld from "@/sections/about-old"
 import About from "@/sections/about"
 import Faq from "@/sections/faq"
 import Works from "@/sections/student-works"
 import Footer from "@/sections/footer"
-import TextRepeat from "@/sections/text-repeat"
-import StackingText from "@/sections/stacking-text"
+// import TextRepeat from "@/sections/text-repeat"
+// import StackingText from "@/sections/stacking-text"
 import StackingTextClose from "@/sections/stacking-text-close"
 
 async function StudentWorks() {
@@ -36,13 +36,13 @@ export default function Home() {
         <Brands />
         <Testimonials />
         <UsedPrograms />
-        {/* <Numbers /> sikintili */}
+        <Numbers />
         <Faq />
         {/* <AboutOld /> */}
         <CourseContent />
         <About />
+        <StackingTextClose />
         {/* <StackingText /> */}
-        {/* <StackingTextClose /> */}
         <StudentWorks />
         {/* <TextRepeat /> */}
       </div>

@@ -35,7 +35,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "sections/faq/index.jsx",
-    "sections/intro-text.tsx"
+    "sections/intro-text.tsx",
+    "sections/numbers.jsx"
   ],
   "exclude": [
     "node_modules"

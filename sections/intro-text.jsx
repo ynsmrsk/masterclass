@@ -34,7 +34,7 @@ export default function IntroText() {
 
 	return (
 		<section ref={refContainer} className="intro-text relative pt-16 pb-24 xl:py-32 bg-dark text-light">
-			<div className="container space-y-1 md:space-y-3 font-display font-semibold text-4xl sm:text-5xl md:text-7xl xl:text-[84px] xl:max-w-5xl">
+			<div className="container space-y-1 md:space-y-3 font-display font-medium text-4xl sm:text-5xl md:text-7xl xl:text-[84px] xl:max-w-5xl">
 				{texts.map((text, i) => (
 					<p className="ml-6 transition-all duration-400 will-change-opacity"
 						key={i}

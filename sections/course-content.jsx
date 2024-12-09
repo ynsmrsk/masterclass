@@ -61,7 +61,7 @@ export default function CourseContent() {
 							backgroundPositionY: i === 0 ? '35%' : 'center',
 						}}
 					>
-						<h3 className='text-4xl lg:text-6xl text-light font-semibold'>
+						<h3 className='text-4xl lg:text-6xl text-light font-medium'>
 							{program.title}
 						</h3>
 					</div>

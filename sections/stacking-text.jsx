@@ -1,15 +1,16 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 
-const StackingText = () => {
+export default function StackingText() {
   const sectionRef = useRef(null)
   const containerRef = useRef(null)
   const textLinesRef = useRef([])
   const endMarkerRef = useRef(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     const section = sectionRef.current
     const container = containerRef.current
     const textLines = textLinesRef.current
@@ -63,18 +64,13 @@ const StackingText = () => {
       pin: true,
       anticipatePin: 0.3,
     })
-
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill())
-    }
-  }, [])
+  }, { scope: sectionRef })
 
   const textLines = [
-    '5 çevrimiçi ders',
-    '10 çevrimdışı ders',
-    '20+ saatlik kurs',
+    '5+ çevrimiçi ders',
+    '10+ çevrimdışı ders',
+    '18+ saatlik kurs',
     '1000+ öğrenci',
-    'kişisel mentörlük',
   ]
 
   return (
@@ -94,7 +90,7 @@ const StackingText = () => {
             >
               <div
                 ref={(el) => (textLinesRef.current[index] = el)}
-                className="text-5xl md:text-[120px] font-semibold font-display leading-none"
+                className="text-5xl md:text-[120px] font-medium font-display leading-none"
               >
                 {text}
               </div>
@@ -106,5 +102,3 @@ const StackingText = () => {
     </section>
   )
 }
-
-export default StackingText

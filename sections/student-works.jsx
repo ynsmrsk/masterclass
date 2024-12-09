@@ -156,7 +156,6 @@ export default function Works({ data }) {
 
         if (windowWidth > 1024) {
             document.addEventListener("mousemove", onMouseMove)
-            // Initial center
             centerView()
         }
         window.addEventListener("resize", onResize)

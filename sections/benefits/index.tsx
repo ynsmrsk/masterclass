@@ -24,7 +24,7 @@ export default function Benefits() {
 								</div>
 							</Left>
 							<Right progress={progress}>
-								<Image className="max-h-[60vh] aspect-[9/16] object-cover rounded-lg"
+								<Image className="max-h-[60vh] lg:max-h-[70vh] aspect-[9/16] object-cover rounded-lg"
 									src={benefit.image} width={540} height={960} alt=""
 								/>
 							</Right>

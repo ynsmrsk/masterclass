@@ -117,11 +117,13 @@ const mid = {
             path: '/brands/casa.avif',
             name: 'Casa',
             link: 'https://casa.com.tr',
+            width: 210
         },
         {
             path: '/brands/gonye.avif',
             name: 'Gönye',
             link: 'https://gonyetasarim.com',
+            width: 200
         },
         {
             path: '/brands/move.avif',
@@ -246,12 +248,14 @@ const wider = {
         {
             path: '/brands/bib.avif',
             name: 'Bib',
-            link: 'http://bibarchitects.com'
+            link: 'http://bibarchitects.com',
+            width: 350
         },
         {
             path: '/brands/barlas-parlak.avif',
             name: 'Barlas Parlak',
             link: 'https://barlasparlak.com',
+            width: 430
         },
         {
             path: '/brands/arketipo-design.avif',

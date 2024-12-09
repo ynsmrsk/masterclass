@@ -1,14 +1,13 @@
 'use client'
-
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
-const StackingText = () => {
-  const sectionRef = useRef(null)
+export default function StackingText() {
+  const container = useRef(null)
   const textLinesRef = useRef([])
 
-  useEffect(() => {
-    const section = sectionRef.current
+  useGSAP(() => {
     const textLines = textLinesRef.current
 
     // Initial state - position lines below viewport with large spacing
@@ -19,7 +18,7 @@ const StackingText = () => {
     // Create animation
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: section,
+        trigger: container.current,
         start: 'top 40%',
         end: '+=1200',
         scrub: 1,
@@ -39,47 +38,34 @@ const StackingText = () => {
         0.1 * index // Slight delay between each line's animation
       )
     })
-
-    return () => {
-      tl.kill()
-    }
-  }, [])
+  }, { scope: container })
 
   const textLines = [
-    '5 çevrimiçi ders',
-    '10 çevrimdışı ders',
-    '20+ saatlik kurs',
+    '5+ çevrimiçi ders',
+    '10+ çevrimdışı ders',
+    '18+ saatlik kurs',
     '1000+ öğrenci',
-    'kişisel mentörlük',
-    '5 çevrimiçi ders',
-    '10 çevrimdışı ders',
   ]
 
   return (
     <section
-      ref={sectionRef}
+      ref={container}
       className="min-h-[250vh] bg-black text-white px-8"
     >
       <div className="h-[50vh]"></div>
       <div className="max-w-6xl mx-auto">
-        <div>
-          {textLines.map((text, index) => (
-            <div
+        <ul>
+          {textLines.map((text, index) =>
+            <li
               key={index}
-              className="relative"
+              ref={(el) => (textLinesRef.current[index] = el)}
+              className="text-5xl md:text-8xl font-medium font-display leading-none uppercase"
             >
-              <div
-                ref={(el) => (textLinesRef.current[index] = el)}
-                className="text-5xl md:text-8xl font-semibold font-display leading-none uppercase"
-              >
-                {text}
-              </div>
-            </div>
-          ))}
-        </div>
+              {text}
+            </li>
+          )}
+        </ul>
       </div>
     </section>
   )
 }
-
-export default StackingText
