@@ -41,7 +41,7 @@ export default function Home() {
         {/* <AboutOld /> */}
         <CourseContent />
         <About />
-        <StackingTextClose />
+        {/* <StackingTextClose /> */}
         {/* <StackingText /> */}
         <StudentWorks />
         {/* <TextRepeat /> */}
