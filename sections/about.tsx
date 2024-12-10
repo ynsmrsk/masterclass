@@ -89,7 +89,7 @@ export default function About() {
           <h2 className='text-2xl mb-6'>İç mimar & 3D görselleştirme uzmanı</h2>
           <p className='text-2xl mb-4 text-primary-300'>3D görselleştirme alanında 7 yıldan fazla deneyime sahip ve aktif olarak mesleki alanın içerisindeyim.</p>
           <p className='text-2xl text-primary-300'>Eğitimlerimde yazılımsal sırlarımı, fotogerçekçi sunum yöntemlerimi ve çalışmalarda kullandığım vazgeçilmez püf noktalarımı paylaşıyorum.</p>
-          <div className='flex gap-6 mt-10'>
+          <div className='flex gap-8 md:gap-12 mt-10'>
             <Image
               src="/autodesk-authorized-training-center.avif"
               alt="Autodesk Authorized Training Center"
