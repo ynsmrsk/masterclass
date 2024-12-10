@@ -1,20 +1,23 @@
-import Link from "next/link"
 import { PropsWithChildren } from "react"
 
-export const Container = ({ children }: PropsWithChildren) => (
-	<div className="grid grid-cols-1 lg:grid-cols-2 w-full min-h-screen">
-		{children}
-	</div>
-)
-
-export const Background = () => (
-	<div className="grid grid-cols-1 lg:grid-cols-2 w-full min-h-screen top-0 sticky">
-		<div className="bg-light h-[35vh] lg:h-auto"></div>
-		<div className="bg-light h-[65vh] lg:min-h-screen">
-			<div className="bg-dark w-full h-full lg:rounded-[32px] overflow-hidden lg:border-[16px] border-light"></div>
+export function Container({ children }: PropsWithChildren) {
+	return (
+		<div className="grid lg:grid-cols-2 w-full min-h-screen">
+			{children}
 		</div>
-	</div>
-)
+	)
+}
+
+export function Background() {
+	return (
+		<div className="grid lg:grid-cols-2 w-full min-h-screen top-0 sticky">
+			<div className="bg-light h-[35vh] lg:h-auto" />
+			<div className="bg-light h-[65vh] lg:min-h-screen">
+				<div className="bg-primary-200 w-full h-full lg:rounded-[32px] overflow-hidden lg:border-[16px] border-light" />
+			</div>
+		</div>
+	)
+}
 
 export function Left({ children, progress }: PropsWithChildren<{ progress: number }>) {
 	let translateY = Math.max(0, 50 - progress * 3 * 50)
@@ -38,9 +41,3 @@ export function Right({ children, progress }: PropsWithChildren<{ progress: numb
 		</div>
 	)
 }
-
-export const CustomLink = ({ href, children }: PropsWithChildren<{ href: string }>) => (
-	<Link href={href} target="_blank" className="underline underline-offset-8 decoration-1" rel="noreferrer">
-		{children}
-	</Link>
-)

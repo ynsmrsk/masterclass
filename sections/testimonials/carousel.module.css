@@ -12,7 +12,7 @@
 
 .slide {
 	flex: 0 0 auto;
-	max-width: min(70%, 650px);
+	max-width: min(80%, 650px);
 	opacity: 0.4;
 	transition: opacity 0.4s;
 	@apply mx-2 lg:mx-8

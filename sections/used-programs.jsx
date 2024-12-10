@@ -9,7 +9,10 @@ export default function UsedPrograms() {
 	const container = useRef(null)
 
 	useGSAP(() => {
+		const observer = new ResizeObserver(() => { ScrollTrigger.refresh() })
+		observer.observe(document.body)
 		gsap.registerPlugin(ScrollTrigger)
+
 		const cards = container.current.querySelectorAll('.card')
 		gsap.from(cards, {
 			y: 50,
@@ -23,14 +26,17 @@ export default function UsedPrograms() {
 				end: '+=100%',
 				pin: true,
 				scrub: true,
+				anticipatePin: 0.5,
 			}
 		})
+
+		return () => observer.disconnect()
 	}, { scope: container })
 
 	return (
 		<section ref={container} className='container flex flex-col justify-center h-screen'>
-			<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Kullanılan Yazılımlar</h2>
-			<ul className='grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-4 xl:gap-6'>
+			<h2 className='text-3xl lg:text-4xl font-medium mb-4 lg:mb-8 text-center'>Kullanılan Yazılımlar</h2>
+			<ul className='grid md:grid-cols-2 2xl:grid-cols-4 gap-4 xl:gap-6'>
 				{programs.map(program =>
 					<li
 						key={program.title}
@@ -45,7 +51,7 @@ export default function UsedPrograms() {
 							className='row-span-full rounded-[24px] h-full'
 						/>
 						<h3 className='self-end text-3xl lg:text-4xl text-dark'>{program.title}</h3>
-						<h4 className='text-xl lg:text-2xl text-primary-700 tracking-wide'>{program.subtitle}</h4>
+						<span className='text-xl lg:text-2xl text-primary-700 tracking-wide'>{program.subtitle}</span>
 					</li>
 				)}
 			</ul>

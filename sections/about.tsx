@@ -83,13 +83,13 @@ export default function About() {
           height={1365}
         />
       </div>
-      <section id='content' className='text-light relative min-h-dvh -mt-32'>
+      <section id='content' className='text-light relative min-h-screen -mt-32'>
         <div className="container max-w-screen-sm text-balance flex flex-col">
           <h1 className='text-6xl lg:text-7xl font-medium'>Selman Can</h1>
           <h2 className='text-3xl mb-6'>İç mimar & 3D görselleştirme uzmanı</h2>
           <p className='text-3xl mb-4 text-primary-300'>3D görselleştirme alanında 7 yıldan fazla deneyime sahip ve aktif olarak mesleki alanın içerisindeyim.</p>
           <p className='text-3xl text-primary-300'>Eğitimlerimde yazılımsal sırlarımı, fotogerçekçi sunum yöntemlerimi ve çalışmalarda kullandığım vazgeçilmez püf noktalarımı paylaşıyorum.</p>
-          <div className='flex flex-col sm:flex-row gap-12 mt-6 lg:mt-12'>
+          <div className='flex flex-col sm:flex-row gap-12 mt-12'>
             <Image
               src="/autodesk-authorized-training-center.avif"
               alt="Autodesk Authorized Training Center"

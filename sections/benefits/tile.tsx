@@ -24,7 +24,7 @@ export function TileWrapper({ numOfSlides, children }: WrapperProps) {
 	const refContainer = useRef<HTMLDivElement>(null)
 	const { current: elContainer } = refContainer
 	let currentSlide = 0
-	
+
 	if (elContainer) {
 		const { clientHeight } = elContainer
 		const rect = elContainer.getBoundingClientRect()
@@ -36,12 +36,12 @@ export function TileWrapper({ numOfSlides, children }: WrapperProps) {
 		) / clientHeight
 		currentSlide = percentY * numOfSlides
 	}
-	
+
 	return (
 		<TileContext.Provider value={{ numOfSlides, currentSlide }}>
 			<div
 				ref={refContainer}
-				className='relative text-white'
+				className='relative'
 				style={{ height: numOfSlides * 100 + 'vh' }}>
 				{children}
 			</div>

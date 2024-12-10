@@ -18,7 +18,7 @@ export default async function StudentWork({ params }: { params: { student: strin
 				<a
 					href={`https://www.instagram.com/${data.instagram}`}
 					target="_blank"
-					rel="noopener noreferrer"
+					rel="noreferrer"
 					className="flex gap-1.5 items-center py-0.5 px-2 border border-dark rounded-full bg-light hover:bg-dark hover:text-light transition-colors"
 				>
 					<InstagramIcon className="w-5 h-5" />

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 	title: 'immersive.images çevrimiçi eğitim',
 	description: 'Foto-gerçekçi mimari görselleştirme kursu - Autodesk 3dsmax & Corona Renderer',
 	metadataBase: new URL('https://immersiveimages.co'),
+	themeColor: '#111',
 }
 
 const fontDisplay = localFont({

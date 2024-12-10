@@ -9,7 +9,7 @@ import {
 
 export default function ContactLinks() {
 	return (
-		<div className="bg-dark rounded-md flex items-center fixed z-50 bottom-3 md:bottom-7 left-2 md:left-5">
+		<div className="bg-dark rounded-md flex items-center fixed z-50 bottom-3 md:bottom-7 left-1/2 -translate-x-1/2 md:left-5 md:translate-x-0">
 			{contactLinks.map(link =>
 				<a
 					key={link.name}
@@ -17,7 +17,7 @@ export default function ContactLinks() {
 					target="_blank"
 					rel="noreferrer"
 					aria-label={`${link.name} adresini ziyaret et`}
-					className="group rounded-md py-2 px-3 hover:bg-light transition"
+					className="group py-2 px-5 md:px-4 hover:bg-light transition"
 				>
 					{link.icon}
 				</a>
@@ -35,7 +35,7 @@ const contactLinks = [
 	},
 	{
 		name: 'whatsapp',
-		href: 'https://wa.me/p/8971866599494004/905458771883',
+		href: 'https://wa.me/905378668977',
 		icon: <WhatsappIcon className={iconStyle} />
 	},
 	{

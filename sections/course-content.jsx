@@ -25,7 +25,7 @@ export default function CourseContent() {
 					trigger: el,
 					start: `top-=${i * spacing} 20%`,
 					end: 'top top',
-					scrub: 0.3,
+					scrub: true,
 				},
 				ease: "none",
 				scale: scaleVal,
@@ -36,7 +36,7 @@ export default function CourseContent() {
 				end: () => lastElST.start,
 				pin: true,
 				scrub: true,
-				anticipatePin: 0.2,
+				anticipatePin: 0.7,
 			})
 		})
 		ScrollTrigger.create({
@@ -45,6 +45,7 @@ export default function CourseContent() {
 			end: () => lastElST.start,
 			pin: true,
 			scrub: true,
+			anticipatePin: 0.5,
 		})
 	}, { scope: container })
 
@@ -55,13 +56,13 @@ export default function CourseContent() {
 				{programs.map((program, i) =>
 					<div
 						key={program.img}
-						className='card w-full h-[30vh] lg:h-[50vh] rounded-xl lg:rounded-2xl p-10 lg:p-12 border-[0.5px] border-primary-600 mb-8 bg-center bg-cover will-change-transform'
+						className='card w-full h-[30vh] lg:h-[50vh] rounded-xl lg:rounded-2xl p-8 lg:p-12 border border-primary-900 mb-8 bg-center bg-cover will-change-transform'
 						style={{
 							backgroundImage: `linear-gradient(to bottom,rgba(24,23,23,0.6),rgba(24,23,23,0.1)),url("${program.img}")`,
 							backgroundPositionY: i === 0 ? '35%' : 'center',
 						}}
 					>
-						<h3 className='text-4xl lg:text-6xl text-light font-medium'>
+						<h3 className='text-[26px] lg:text-6xl text-light font-medium'>
 							{program.title}
 						</h3>
 					</div>

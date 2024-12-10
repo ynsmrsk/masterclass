@@ -19,12 +19,13 @@ export default function Brands() {
                     <div className="marquee-track">
                         {[...strip.items, ...strip.items].map((brand, i) =>
                             <a
-                                className="marquee-item lg:hover:bg-primary-200/20 rounded-xl p-5 lg:p-10 h-[160px] lg:min-h-[200px] 2xl:min-h-[240px]"
+                                className="marquee-item outline-none lg:hover:bg-primary-200/25 rounded-xl p-5 lg:p-10 h-[160px] lg:min-h-[200px] 2xl:min-h-[240px]"
                                 key={`${i}-${brand.name}`}
                                 style={{ "--item-position": i + 1 }}
                                 href={brand.link}
                                 target="_blank"
                                 rel="noreferrer"
+                                tabIndex="-1"
                             >
                                 <Image
                                     src={brand.path}
@@ -36,6 +37,7 @@ export default function Brands() {
                                     }}
                                     width={300}
                                     height={120}
+                                    priority
                                 />
                             </a>
                         )}

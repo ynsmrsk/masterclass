@@ -14,11 +14,11 @@ export default function Benefits() {
 					<Tile key={i} slide={i} renderContent={({ progress }) => (
 						<Container>
 							<Left progress={progress}>
-								<div className="2xl:max-w-[70%]">
-									<h2 className="text-[24px] leading-[28px] lg:text-[40px] lg:leading-none mb-[2px] lg:mb-1 font-medium font-display text-dark">
+								<div className="2xl:max-w-[80%]">
+									<h2 className="text-4xl xl:text-6xl mb-2 font-medium">
 										{benefit.title}
 									</h2>
-									<p className="text-xl leading-6 lg:text-4xl text-primary-500 ">
+									<p className="text-2xl lg:text-4xl text-primary-600 text-balance">
 										{benefit.description}
 									</p>
 								</div>
@@ -39,7 +39,7 @@ export default function Benefits() {
 const benefits = [
 	{
 		title: 'Deneyimli 3D Sanatçısından Bilgiler',
-		description: 'Fotogerçekçi renderlar oluşturmak için en kullanışlı tekniklerin anlatımları. Farklı oda tiplerinde aydınlatma ve malzeme kurulumunun önemli nüansları hakkında bilgiler.',
+		description: 'Fotogerçekçi renderlar oluşturmak için en kullanışlı tekniklerin anlatımı. Farklı oda tiplerinde aydınlatma ve malzeme kurulumunun önemli nüansları hakkında bilgiler.',
 		image: '/benefits/3d-sanatcisindan-bilgiler.jpg',
 	},
 	{

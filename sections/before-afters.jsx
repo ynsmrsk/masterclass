@@ -36,15 +36,15 @@ export default function BeforeAfters() {
   }, { scope: container })
 
   return (
-    <section ref={container} className="h-screen relative">
-      <div className="left absolute inset-0 overflow-hidden text-primary-200 z-10">
+    <section ref={container} className="h-screen relative lg:mx-4 lg:rounded-2xl overflow-hidden">
+      <div className="left absolute w-full h-full overflow-hidden text-primary-200 z-10">
         <div className="w-screen h-full flex flex-col bg-cover bg-[url('/before-afters/salon-after-blurred.avif')]">
-          <h2 className="text-balance mb-12 font-medium font-display px-12 mx-auto mt-auto uppercase pt-20 lg:mt-4 2xl:mt-24 text-2xl md:text-4xl md:leading-tight md:max-w-[800px] 2xl:text-5xl 2xl:leading-tight 2xl:max-w-screen-lg">Hayalindeki mimari tasarımları gerçekçi görseller ile <span className="text-orange-600">güçlendir</span></h2>
+          <h2 className="text-balance font-medium px-12 ml-[8vw] mb-12 mt-auto pt-10 lg:mt-4 2xl:mt-20 leading-tight text-[6.5vw] xl:text-[4vw] max-w-screen-2xl uppercase">Hayalindeki mimari tasarımları gerçekçi görseller ile <span className="text-orange-600">güçlendir</span></h2>
           <div
             className="marquee"
             style={{
               "--num-items": afters.length,
-              "--item-width": "clamp(15rem, 2rem + 40vmin, 40rem)",
+              "--item-width": "clamp(25rem, 2rem + 40vmin, 40rem)",
               "--gap": "1rem",
               "--speed": "45s"
             }}
@@ -62,6 +62,7 @@ export default function BeforeAfters() {
                     width={405}
                     height={506}
                     className="w-[clamp(15rem, 2rem + 40vmin, 40rem)] aspect-[8/10] rounded-t-lg lg:rounded-lg"
+                    priority
                   />
                 </div>
               )}
@@ -70,12 +71,12 @@ export default function BeforeAfters() {
         </div>
       </div>
       <div className="absolute inset-0 text-white flex flex-col bg-cover bg-[url('/before-afters/salon-before-blurred.avif')]">
-        <h2 className="text-balance mb-12 font-medium font-display px-12 mx-auto mt-auto uppercase pt-20 lg:mt-4 2xl:mt-24 text-2xl md:text-4xl md:leading-tight md:max-w-[800px] 2xl:text-5xl 2xl:leading-tight 2xl:max-w-screen-lg">Hayalindeki mimari tasarımları gerçekçi görseller ile canlandır</h2>
+        <h2 className="text-balance font-medium px-12 ml-[8vw] mb-12 mt-auto pt-10 lg:mt-4 2xl:mt-20 leading-tight text-[6.5vw] xl:text-[4vw] max-w-screen-2xl uppercase">Hayalindeki mimari tasarımları gerçekçi görseller ile <span>canlandır</span></h2>
         <div
           className="marquee"
           style={{
             "--num-items": befores.length,
-            "--item-width": "clamp(15rem, 2rem + 40vmin, 40rem)",
+            "--item-width": "clamp(25rem, 2rem + 40vmin, 40rem)",
             "--gap": "1rem",
             "--speed": "45s"
           }}
@@ -93,6 +94,7 @@ export default function BeforeAfters() {
                   width={405}
                   height={506}
                   className="w-[clamp(15rem, 2rem + 40vmin, 40rem)] aspect-[8/10] rounded-t-lg lg:rounded-lg"
+                  priority
                 />
               </div>
             )}
