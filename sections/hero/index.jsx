@@ -1,26 +1,29 @@
 'use client'
 import { useScrollY } from "@/hooks/use-scroll-y"
-import { useRef, useState } from "react"
+import { useRef, useState, useMemo } from "react"
+import dynamic from 'next/dynamic'
+
+const VideoModal = dynamic(() => import('./video-modal'), {
+  ssr: false,
+  loading: () => <div className="fixed inset-0 bg-dark/80 backdrop-blur-xl" />
+})
 
 export default function Hero() {
   const refContainer = useRef()
-  const dialogRef = useRef()
-  const scrollY = useScrollY()
   const [showTrailer, setShowTrailer] = useState(false)
-
-  function openDialog() {
-    dialogRef.current?.showModal()
-    setShowTrailer(true)
-  }
-
-  function closeDialog() {
-    dialogRef.current?.close()
-    setShowTrailer(false)
-  }
+  const scrollY = useScrollY()
 
   const scrollProgress = refContainer.current
     ? Math.min(1, Math.max(0, scrollY / refContainer.current.clientHeight))
     : 0
+
+  function openDialog() {
+    setShowTrailer(true)
+  }
+
+  function closeDialog() {
+    setShowTrailer(false)
+  }
 
   return (
     <header
@@ -53,38 +56,18 @@ export default function Hero() {
             <svg width="16" height="16" viewBox="0 0 24 24"><path d="M19.077 4.928c-2.082-2.083-4.922-3.134-7.904-2.894-4.009.322-7.523 3.11-8.699 6.956-.84 2.748-.487 5.617.881 7.987L2.059 21.28a.551.551 0 0 0 .67.691l4.504-1.207a10 10 0 0 0 4.773 1.216h.004c4.195 0 8.071-2.566 9.412-6.541 1.306-3.876.34-7.823-2.345-10.511m-2.179 10.626c-.208.583-1.227 1.145-1.685 1.186-.458.042-.887.207-2.995-.624-2.537-1-4.139-3.601-4.263-3.767-.125-.167-1.019-1.353-1.019-2.581s.645-1.832.874-2.081a.92.92 0 0 1 .666-.312c.166 0 .333 0 .478.006.178.007.375.016.562.431.222.494.707 1.728.769 1.853s.104.271.021.437-.125.27-.249.416c-.125.146-.262.325-.374.437-.125.124-.255.26-.11.509.146.25.646 1.067 1.388 1.728.954.85 1.757 1.113 2.007 1.239.25.125.395.104.541-.063s.624-.728.79-.978.333-.208.562-.125 1.456.687 1.705.812.416.187.478.291.062.603-.146 1.186" /></svg>
           </a>
           <button
-            className="flex items-center gap-2 px-6 py-1 outline-none bg-dark text-light rounded-full border-[1px] border-light"
+            className="flex items-center gap-2 px-6 py-1 outline-none bg-dark text-light rounded-full border-[1px] border-light hover:bg-light/10 transition-colors"
             onClick={openDialog}
           >
             <span>Filmi İzle</span>
-            <svg width="14" height="14" fill="#fff" viewBox="0 0 1024 1024"><path d="M213.333 189.227v645.546a42.667 42.667 0 0 0 65.97 35.627l512-322.774a42.667 42.667 0 0 0 0-71.253l-512-322.773a42.667 42.667 0 0 0-65.97 35.627" /></svg>
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z" />
+            </svg>
           </button>
         </div>
       </div>
-      <dialog
-        ref={dialogRef}
-        className="backdrop:bg-dark/80 overflow-visible backdrop:backdrop-blur-2xl bg-transparent w-screen md:w-5/6 aspect-video [&[open]]:animate-fadein"
-        onClick={(e) => { if (e.target === dialogRef.current) closeDialog() }}
-      >
-        <button
-          onClick={closeDialog}
-          className="absolute top-3 -right-12 text-light bg-light/10 rounded-lg p-1"
-        >
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-          </svg>
-        </button>
-        {showTrailer && (
-          <iframe
-            className="w-full h-full rounded-2xl"
-            src="https://www.youtube.com/embed/JkgXoLMWcjk?rel=0&controls=0&autoplay=1&modestbranding=1"
-            title="immersive.images kurs tanıtım filmi"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{ pointerEvents: 'all' }}
-          />
-        )}
-      </dialog>
+
+      {showTrailer && <VideoModal isOpen={showTrailer} onClose={closeDialog} />}
     </header>
   )
 }
