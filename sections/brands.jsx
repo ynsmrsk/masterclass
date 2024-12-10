@@ -37,7 +37,6 @@ export default function Brands() {
                                     }}
                                     width={300}
                                     height={120}
-                                    priority
                                 />
                             </a>
                         )}

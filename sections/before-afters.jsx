@@ -62,7 +62,6 @@ export default function BeforeAfters() {
                     width={405}
                     height={506}
                     className="w-[clamp(15rem, 2rem + 40vmin, 40rem)] aspect-[8/10] rounded-t-lg lg:rounded-lg"
-                    priority
                   />
                 </div>
               )}
@@ -94,7 +93,6 @@ export default function BeforeAfters() {
                   width={405}
                   height={506}
                   className="w-[clamp(15rem, 2rem + 40vmin, 40rem)] aspect-[8/10] rounded-t-lg lg:rounded-lg"
-                  priority
                 />
               </div>
             )}
