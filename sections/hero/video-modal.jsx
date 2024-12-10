@@ -5,11 +5,9 @@ export default function VideoModal({ isOpen, onClose }) {
   const dialogRef = useRef()
 
   useEffect(() => {
-    if (isOpen) {
-      dialogRef.current?.showModal()
-    } else {
-      dialogRef.current?.close()
-    }
+    isOpen
+      ? dialogRef.current?.showModal()
+      : dialogRef.current?.close()
   }, [isOpen])
 
   return (

@@ -9,7 +9,7 @@ import {
 
 export default function ContactLinks() {
 	return (
-		<div className="bg-dark rounded-md flex items-center fixed z-50 bottom-3 md:bottom-7 left-1/2 -translate-x-1/2 md:left-5 md:translate-x-0">
+		<div className="bg-dark rounded-full flex items-center fixed z-50 bottom-3 md:bottom-7 left-1/2 -translate-x-1/2 md:left-5 md:translate-x-0">
 			{contactLinks.map(link =>
 				<a
 					key={link.name}
