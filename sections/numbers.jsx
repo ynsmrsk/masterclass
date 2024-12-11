@@ -5,11 +5,13 @@ import { useGSAP } from '@gsap/react'
 
 export default function Numbers() {
 	const container = useRef()
+	const linesRef = useRef([])
+	const charsRef = useRef({})
 
 	useGSAP(() => {
-		const lines = document.querySelectorAll('.line')
+		linesRef.current.forEach((line, lineIndex) => {
+			if (!line || !charsRef.current[lineIndex]) return
 
-		lines.forEach(line => {
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: line,
@@ -21,7 +23,9 @@ export default function Numbers() {
 				}
 			})
 
-			tl.from(line.querySelectorAll('.char'), {
+			const chars = charsRef.current[lineIndex]
+
+			tl.from(chars, {
 				opacity: 0,
 				stagger: 0.03,
 				transformOrigin: 'top center',
@@ -30,7 +34,7 @@ export default function Numbers() {
 				y: '10vw',
 			})
 
-			tl.to(line.querySelectorAll('.char'), {
+			tl.to(chars, {
 				opacity: 0,
 				stagger: 0.03,
 				transformOrigin: 'top center',
@@ -43,10 +47,23 @@ export default function Numbers() {
 
 	return (
 		<section ref={container}>
-			{data.map((item, i) => (
-				<h2 key={i} className='line [perspective:1000px] tracking-tighter leading-none text-center text-[12.5vw] font-medium'>
-					{item.split('').map((char, i) => (
-						<span key={i} className='char inline-block whitespace-pre will-change-transform'>
+			{data.map((item, lineIndex) => (
+				<h2
+					key={lineIndex}
+					ref={el => linesRef.current[lineIndex] = el}
+					className='line [perspective:1000px] tracking-tighter leading-none text-center text-[12.5vw] font-medium'
+				>
+					{item.split('').map((char, charIndex) => (
+						<span
+							key={charIndex}
+							ref={el => {
+								if (!charsRef.current[lineIndex]) {
+									charsRef.current[lineIndex] = []
+								}
+								charsRef.current[lineIndex][charIndex] = el
+							}}
+							className='char inline-block whitespace-pre will-change-transform'
+						>
 							{char}
 						</span>
 					))}
