@@ -8,7 +8,7 @@ export default async function Testimonials() {
 
 	return (
 		<section className='py-24'>
-			<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Öğrenci Değerlendirmeleri</h2>
+			<h2 className='text-3xl lg:text-5xl uppercase font-display font-medium mb-6 lg:mb-12 text-center'>Öğrenci Değerlendirmeleri</h2>
 			<Carousel>
 				{testimonials.map((testimonial, i) =>
 					<CarouselItem key={i} index={i}>

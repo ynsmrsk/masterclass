@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Brands() {
     return (
         <section className='py-16 lg:pt-40'>
-            <h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Kursiyerlerimizin Çalıştığı İşletmeler</h2>
+            <h2 className='text-3xl lg:text-5xl uppercase font-display font-medium mb-6 lg:mb-12 text-center'>Kursiyerlerimizin Çalıştığı İşletmeler</h2>
 
             {[narrow, mid, wide, wider].map((strip, stripIndex) => (
                 <div

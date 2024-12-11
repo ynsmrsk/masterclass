@@ -11,7 +11,7 @@ export function Animation({ children }) {
 		gsap.registerPlugin(ScrollTrigger)
 		gsap.to(".image:not(:last-child)", {
 			yPercent: -100,
-			ease: "none",
+			ease: "power1.inOut",
 			stagger: 0.5,
 			scrollTrigger: {
 				trigger: container.current,
@@ -42,11 +42,13 @@ export function Animation({ children }) {
 		})
 	}, { scope: container })
 
-	return <div ref={container} className="w-screen h-screen">
-		<div className="mouse bg-light/80 w-7 h-11 rounded-full border-2 border-dark absolute top-1/4 left-1/2 -translate-x-1/2 z-10">
-			<div className="mouse-wheel w-1 h-2 bg-dark rounded-full opacity-0 absolute top-1 left-1/2 -translate-x-1/2" />
-			<span className="animate-pulse duration-1000 font-medium text-sm tracking-wide leading-none bg-light/50 rounded-lg py-1 px-1.5 absolute -left-16 top-1/2 -translate-y-1/2">kaydır</span>
+	return (
+		<div ref={container} className="w-screen h-screen">
+			<div className="mouse bg-light/80 w-7 h-11 rounded-full border border-dark absolute top-1/4 left-1/2 -translate-x-1/2 z-10">
+				<div className="mouse-wheel w-1 h-2 bg-dark rounded-full opacity-0 absolute top-1 left-1/2 -translate-x-1/2" />
+				<span className="animate-pulse duration-1000 font-medium text-sm tracking-wide uppercase mix-blend-difference text-light absolute -left-16 top-1/2 -translate-y-1/2">kaydır</span>
+			</div>
+			{children}
 		</div>
-		{children}
-	</div>
+	)
 }

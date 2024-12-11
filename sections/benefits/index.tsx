@@ -15,10 +15,10 @@ export default function Benefits() {
 						<Container>
 							<Left progress={progress}>
 								<div className="2xl:max-w-[80%]">
-									<h2 className="text-4xl xl:text-6xl mb-2 font-medium">
+									<h2 className="text-4xl xl:text-5xl 2xl:text-6xl mb-2 font-medium">
 										{benefit.title}
 									</h2>
-									<p className="text-2xl lg:text-4xl text-primary-600 text-balance">
+									<p className="text-2xl xl:text-3xl 2xl:text-4xl text-primary-600 text-balance">
 										{benefit.description}
 									</p>
 								</div>

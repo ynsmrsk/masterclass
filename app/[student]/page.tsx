@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { getStudentWork } from "@/sanity/sanity-utils"
 import { Animation } from './animation'
-import { ArrowLeftIcon, InstagramIcon } from '@/components/icons'
 import Image from 'next/image'
 
 export default async function StudentWork({ params }: { params: { student: string } }) {
@@ -10,21 +9,21 @@ export default async function StudentWork({ params }: { params: { student: strin
 
 	return (
 		<main className='bg-light'>
-			<div className="fixed left-2 top-4 lg:left-4 z-10 flex flex-col gap-2 items-start">
-				<Link href="/student-works" className="flex gap-1.5 items-center py-0.5 px-2 border border-dark rounded-full bg-light hover:bg-dark hover:text-light transition-colors" >
-					<ArrowLeftIcon className="w-[18px] h-[18px]" />
-					<span className="text-sm lg:text-base mt-[2.5px] uppercase">Öğrenci Çalışmaları</span>
-				</Link>
-				<a
-					href={`https://www.instagram.com/${data.instagram}`}
-					target="_blank"
-					rel="noreferrer"
-					className="flex gap-1.5 items-center py-0.5 px-2 border border-dark rounded-full bg-light hover:bg-dark hover:text-light transition-colors"
-				>
-					<InstagramIcon className="w-5 h-5" />
-					<span className="text-sm lg:text-base mt-[1px] uppercase">{data.student}</span>
-				</a>
-			</div>
+			<Link
+				href="/student-works"
+				className="fixed top-4 left-4 p-4 z-10 uppercase flex gap-1.5 items-center py-2 px-3 text-sm font-medium leading-none border-[1.3px] border-dark rounded-full bg-light hover:bg-dark hover:text-light transition-colors"
+			>
+				Öğrenci Çalışmaları
+			</Link>
+			<a
+				href={`https://www.instagram.com/${data.instagram}`}
+				target="_blank"
+				rel="noreferrer"
+				className="fixed bottom-4 right-4 z-10 uppercase flex gap-1 items-center py-0.5 px-1 mix-blend-difference text-light"
+			>
+				<Image className='' src="/icons/instagram-logo.svg" width={20} height={20} alt='instagram logo' />
+				<span className="mt-[1.5px]">{data.student}</span>
+			</a>
 
 			<Animation>
 				{data.images.map(image =>

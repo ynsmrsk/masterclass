@@ -32,14 +32,14 @@ export default function Hero() {
         style={{ transform: `translateY(-${scrollProgress * 20}vh)` }}
       />
       <div
-        className="w-full pb-20 px-4 text-white text-center will-change-transform flex flex-col items-center"
+        className="w-full pb-20 px-4 text-light text-center will-change-transform flex flex-col items-center"
         style={{ transform: `translateY(${scrollProgress * 5}vh)` }}
       >
-        <h1 className="mb-6 leading-none text-4xl md:text-5xl lg:text-6xl xl:text-[86px] 2xl:text-[100px] drop-shadow-lg tracking-tight max-w-screen-2xl md:text-balance">Estetik ve Fotogerçekçiliği Birleştiren Mimari Görselleştirme Kursu</h1>
+        <h1 className="mb-6 leading-none text-5xl md:text-5xl lg:text-6xl xl:text-[86px] 2xl:text-[100px] drop-shadow-lg tracking-tight max-w-screen-2xl md:text-balance">Estetik ve Fotogerçekçiliği Birleştiren Mimari Görselleştirme Kursu</h1>
         <p className="text-xl md:text-2xl 2xl:text-3xl tracking-wider drop-shadow-lg max-w-screen-lg px-4 md:text-balance">Çevrimiçi gerçekleşen canlı eğitimler ile profesyonel mimari tasarımlar üretmeyi adım adım öğren</p>
         <div className="flex gap-4 items-center mt-10">
           <a
-            className="font-medium py-2.5 px-8 rounded-full flex items-center gap-1.5 bg-white text-black tracking-wide hover:bg-opacity-75 transition-colors"
+            className="font-medium py-2 px-8 rounded-full outline-none border border-light bg-light hover:bg-primary-300 hover:border-primary-300 text-dark tracking-wide transition-colors"
             href='https://wa.me/905378668977'
             target="_blank"
             rel="noreferrer"
@@ -47,7 +47,7 @@ export default function Hero() {
             BİLGİ AL
           </a>
           <button
-            className="font-medium py-2.5 pl-6 pr-8 rounded-full flex items-center gap-2 outline-none border border-light text-light hover:bg-light/20 transition-colors"
+            className="font-medium py-2 pl-6 pr-8 rounded-full flex items-center gap-2 outline-none border border-light text-light hover:bg-light hover:text-dark transition-colors"
             onClick={() => setShowTrailer(true)}
           >
             <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">

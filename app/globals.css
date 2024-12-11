@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+	html {
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+	}
+
 	body {
 		overflow-x: hidden;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		-ms-overflow-style: none;
-		scrollbar-width: none;
 	}
 
 	body::-webkit-scrollbar {

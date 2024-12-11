@@ -7,8 +7,8 @@ export default function ScrollTriggerRefresh() {
     const observer = new ResizeObserver(() => {
       ScrollTrigger.refresh()
     })
-
     observer.observe(document.body)
+
     return () => observer.disconnect()
   }, [])
 

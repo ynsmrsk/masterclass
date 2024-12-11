@@ -83,26 +83,24 @@ export default function About() {
           height={1365}
         />
       </div>
-      <section id='content' className='text-light relative min-h-screen -mt-32'>
-        <div className="container max-w-screen-sm text-balance flex flex-col">
-          <h1 className='text-6xl lg:text-7xl font-medium'>Selman Can</h1>
-          <h2 className='text-2xl mb-6'>İç mimar & 3D görselleştirme uzmanı</h2>
-          <p className='text-2xl mb-4 text-primary-300'>3D görselleştirme alanında 7 yıldan fazla deneyime sahip ve aktif olarak mesleki alanın içerisindeyim.</p>
-          <p className='text-2xl text-primary-300'>Eğitimlerimde yazılımsal sırlarımı, fotogerçekçi sunum yöntemlerimi ve çalışmalarda kullandığım vazgeçilmez püf noktalarımı paylaşıyorum.</p>
-          <div className='flex gap-8 md:gap-12 mt-10'>
-            <Image
-              src="/autodesk-authorized-training-center.avif"
-              alt="Autodesk Authorized Training Center"
-              width={160}
-              height={41}
-            />
-            <Image
-              src="/autodesk-learning-partner.avif"
-              alt="Autodesk Learning Partner"
-              width={160}
-              height={41}
-            />
-          </div>
+      <section id='content' className='container relative -mt-32 -mb-32 lg:translate-x-20 text-light min-h-screen max-w-[620px] text-balance flex flex-col'>
+        <h1 className='text-[66px] leading-none font-medium'>Selman Can</h1>
+        <h2 className='text-2xl mb-6'>İç mimar & 3D görselleştirme uzmanı</h2>
+        <p className='text-2xl mb-4 text-primary-300'>3D görselleştirme alanında 7 yıldan fazla deneyime sahip ve aktif olarak mesleki alanın içerisindeyim.</p>
+        <p className='text-2xl text-primary-300'>Eğitimlerimde yazılımsal sırlarımı, fotogerçekçi sunum yöntemlerimi ve çalışmalarda kullandığım vazgeçilmez püf noktalarımı paylaşıyorum.</p>
+        <div className='flex gap-8 md:gap-12 mt-10'>
+          <Image
+            src="/autodesk-authorized-training-center.avif"
+            alt="Autodesk Authorized Training Center"
+            width={160}
+            height={41}
+          />
+          <Image
+            src="/autodesk-learning-partner.avif"
+            alt="Autodesk Learning Partner"
+            width={160}
+            height={41}
+          />
         </div>
       </section>
     </section>

@@ -35,7 +35,7 @@ export default function UsedPrograms() {
 
 	return (
 		<section ref={container} className='container flex flex-col justify-center h-screen'>
-			<h2 className='text-3xl lg:text-4xl font-medium mb-4 lg:mb-8 text-center'>Kullanılan Yazılımlar</h2>
+			<h2 className='text-3xl lg:text-5xl uppercase font-display font-medium mb-4 lg:mb-8 text-center'>Kullanılan Yazılımlar</h2>
 			<ul className='grid md:grid-cols-2 2xl:grid-cols-4 gap-4 xl:gap-6'>
 				{programs.map(program =>
 					<li

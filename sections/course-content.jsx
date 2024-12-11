@@ -1,8 +1,8 @@
 'use client'
 import { useRef } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default function CourseContent() {
 	const container = useRef(null)
@@ -52,7 +52,7 @@ export default function CourseContent() {
 	return (
 		<section ref={container}>
 			<div className="container flex flex-col items-center">
-				<h2 className='text-3xl lg:text-4xl font-medium mb-6 lg:mb-12 text-center'>Ders İçeriği</h2>
+				<h2 className='text-3xl lg:text-5xl uppercase font-display font-medium mb-6 lg:mb-12 text-center'>Ders İçeriği</h2>
 				{programs.map((program, i) =>
 					<div
 						key={program.img}

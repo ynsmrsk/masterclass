@@ -2,12 +2,26 @@
 import { useRef } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import Image from 'next/image'
 
 export default function BeforeAfters() {
   const container = useRef()
 
   useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.from(".marquee", {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 30%",
+        toggleActions: "play none none reverse"
+      }
+    })
+
     gsap.to(".left", {
       width: '75vw',
       duration: 1,
@@ -38,13 +52,13 @@ export default function BeforeAfters() {
   return (
     <section ref={container} className="h-screen relative lg:mx-4 lg:rounded-2xl overflow-hidden">
       <div className="left absolute w-full h-full overflow-hidden text-primary-200 z-10">
-        <div className="w-screen h-full flex flex-col bg-cover bg-[url('/before-afters/salon-after-blurred.avif')]">
-          <h2 className="text-balance font-medium px-12 ml-[8vw] mb-12 mt-auto pt-10 lg:mt-4 2xl:mt-20 leading-tight text-[6.5vw] xl:text-[4vw] max-w-screen-2xl uppercase">Hayalindeki mimari tasarımları gerçekçi görseller ile <span className="text-orange-600">güçlendir</span></h2>
+        <div className="w-screen h-full flex flex-col lg:pb-14 bg-cover bg-[url('/before-afters/salon-after-blurred.avif')]">
+          <h2 className="text-balance font-display font-medium px-12 md:ml-[8vw] mb-12 mt-auto leading-tight text-[6.5vw] xl:text-[4vw] max-w-screen-2xl uppercase">Hayalindeki mimari tasarımları gerçekçi görseller ile <span className="text-orange-600">güçlendir</span></h2>
           <div
             className="marquee"
             style={{
               "--num-items": afters.length,
-              "--item-width": "clamp(25rem, 2rem + 40vmin, 40rem)",
+              "--item-width": "clamp(27rem, 2rem + 40vmin, 36rem)",
               "--gap": "1rem",
               "--speed": "45s"
             }}
@@ -61,7 +75,7 @@ export default function BeforeAfters() {
                     alt="before render"
                     width={405}
                     height={506}
-                    className="w-[clamp(15rem, 2rem + 40vmin, 40rem)] aspect-[8/10] rounded-t-lg lg:rounded-lg"
+                    className="w-[clamp(15rem, 2rem + 40vmin, 40rem)] aspect-[8/10] rounded-t-xl lg:rounded-xl"
                   />
                 </div>
               )}
@@ -69,13 +83,13 @@ export default function BeforeAfters() {
           </div>
         </div>
       </div>
-      <div className="absolute inset-0 text-white flex flex-col bg-cover bg-[url('/before-afters/salon-before-blurred.avif')]">
-        <h2 className="text-balance font-medium px-12 ml-[8vw] mb-12 mt-auto pt-10 lg:mt-4 2xl:mt-20 leading-tight text-[6.5vw] xl:text-[4vw] max-w-screen-2xl uppercase">Hayalindeki mimari tasarımları gerçekçi görseller ile <span>canlandır</span></h2>
+      <div className="absolute inset-0 text-white flex flex-col lg:pb-14 bg-cover bg-[url('/before-afters/salon-before-blurred.avif')]">
+        <h2 className="text-balance font-display font-medium px-12 md:ml-[8vw] mb-12 mt-auto leading-tight text-[6.5vw] lg:text-[4vw] max-w-screen-2xl uppercase">Hayalindeki mimari tasarımları gerçekçi görseller ile <span>canlandır</span></h2>
         <div
           className="marquee"
           style={{
             "--num-items": befores.length,
-            "--item-width": "clamp(25rem, 2rem + 40vmin, 40rem)",
+            "--item-width": "clamp(27rem, 2rem + 40vmin, 36rem)",
             "--gap": "1rem",
             "--speed": "45s"
           }}
@@ -92,7 +106,7 @@ export default function BeforeAfters() {
                   alt="before render"
                   width={405}
                   height={506}
-                  className="w-[clamp(15rem, 2rem + 40vmin, 40rem)] aspect-[8/10] rounded-t-lg lg:rounded-lg"
+                  className="w-[clamp(15rem, 2rem + 40vmin, 40rem)] aspect-[8/10] rounded-t-xl lg:rounded-xl"
                 />
               </div>
             )}
