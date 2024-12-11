@@ -35,14 +35,14 @@ export default function Testimonial({ testimonial }: { testimonial: TestimonialT
 				</button>
 			</blockquote>
 			<a
-				className="flex items-center gap-4 hover:bg-primary-200 transition p-2 -ml-2 mt-auto rounded-md"
+				className="flex items-center gap-4 hover:bg-primary-200 transition py-2 pl-2.5 pr-4 -ml-2 mt-auto rounded-full"
 				target="_blank"
 				href={`https://www.instagram.com/${testimonial.instagram}/`}
 				rel="noreferrer"
 			>
 				<Image className="rounded-full grayscale-[20%]" src={testimonial.image} width={60} height={60} alt='Reviewer' />
 				<div className="grid font-medium">
-					<cite className="text-primary-800 leading-tight text-sm sm:text-base 2xl:text-lg 2xl:leading-tight uppercase">{testimonial.student}</cite>
+					<cite className="text-primary-800 leading-tight text-sm sm:text-base 2xl:text-lg 2xl:leading-tight uppercase not-italic">{testimonial.student}</cite>
 					<span className="text-primary-700 text-sm leading-tight 2xl:text-base 2xl:leading-tight">@{testimonial.instagram}</span>
 				</div>
 			</a>
