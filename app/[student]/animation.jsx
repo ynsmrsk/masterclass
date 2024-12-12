@@ -44,7 +44,7 @@ export function Animation({ children }) {
 
 	return (
 		<div ref={container} className="w-screen h-screen">
-			<div className="mouse bg-light/80 w-7 h-11 rounded-full border border-dark absolute top-1/4 left-1/2 -translate-x-1/2 z-10">
+			<div className="mouse bg-light/80 w-7 h-11 rounded-full border border-dark absolute top-1/4 left-1/2 -translate-x-1/2 z-50">
 				<div className="mouse-wheel w-1 h-2 bg-dark rounded-full opacity-0 absolute top-1 left-1/2 -translate-x-1/2" />
 				<span className="animate-pulse duration-1000 font-medium text-sm tracking-wide uppercase mix-blend-difference text-light absolute -left-16 top-1/2 -translate-y-1/2">kaydır</span>
 			</div>
