@@ -65,7 +65,7 @@ export default function About() {
   }, { scope: container })
 
   return (
-    <section ref={container}>
+    <section className={'mb-32 sm:mb-0'} ref={container}>
       <div id='image-wrapper' className="brightness-100 w-screen h-[115vh] bg-light">
         <div className="blur-overlay absolute inset-0 z-10" />
         <Image
